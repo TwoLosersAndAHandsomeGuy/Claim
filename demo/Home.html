@@ -14,11 +14,146 @@
             src="../resources/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript"
             src="../resources/bootstrap/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script type="text/javascript" src="../resources/js/megamenu.js"></script>
+
     <script type="text/javascript">
+        $(function () {
+            var qcloud = {};
+            $('[_t_nav]').hover(function () {
+                var _nav = $(this).attr('_t_nav');
+                clearTimeout(qcloud[_nav + '_timer']);
+                qcloud[_nav + '_timer'] = setTimeout(function () {
+                    $('[_t_nav]').each(function () {
+                        $(this)[_nav == $(this).attr('_t_nav') ? 'addClass' : 'removeClass']('nav-up-selected');
+                    });
+                    $('#' + _nav).stop(true, true).slideDown(200);
+                }, 150);
+
+
+            }, function () {
+                var _nav = $(this).attr('_t_nav');
+                clearTimeout(qcloud[_nav + '_timer']);
+                qcloud[_nav + '_timer'] = setTimeout(function () {
+                    $('[_t_nav]').removeClass('nav-up-selected');
+                    $('#' + _nav).stop(true, true).slideUp(200);
+                }, 150);
+            });
+        });
 
     </script>
     <style type="text/css">
+        .head-v3 {
+            position: relative;
+            z-index: 100;
+            min-width: 800px
+        }
 
+        .head-v3 .navigation-inner {
+            margin: 0 auto;
+            width: 100%;
+            position: relative
+        }
+
+        .navigation-up .navigation-v3 {
+            margin-left: 155px;
+            float: left;
+            _margin-left: 10px
+        }
+
+        .navigation-up .navigation-v3 ul {
+            width: auto;
+            overflow: hidden;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            margin-left: -500px;
+            z-index: 30;
+        }
+
+        .navigation-up .navigation-v3 li {
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            float: left;
+            text-align: center;
+            position: relative;
+            z-index: -1;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .navigation-up .navigation-v3 li a {
+            width: 100%;
+            height: 60px;
+            line-height: 80px;
+            display: block;
+            float: left;
+            font-size: 17px;
+            font-family: '微软雅黑';
+            color: #666;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navigation-up .navigation-v3 li.nav-up-selected a {
+            color: #337ab7;
+            background: url(../resources/images/dot.png) no-repeat center bottom;
+        }
+
+        .navigation-down {
+            position: absolute;
+            top: 80px;
+            left: 0px;
+            width: 100%
+        }
+
+        .navigation-down .nav-down-menu {
+            width: 100%;
+            margin: 0;
+            background: #f6f6f6;
+            position: absolute;
+            top: 0px
+        }
+
+        .navigation-down .nav-down-menu .navigation-down-inner {
+            margin: auto;
+            width: 100%;
+            position: relative;
+            margin-left: 50px;
+        }
+
+        /* 下部按钮水平排列 */
+        .navigation-down .nav-down-menu dl {
+            float: left;
+            margin: 18px 80px 0 0
+        }
+
+        .navigation-down .menu-1 dl {
+            margin: 20px 80px 25px 0
+        }
+
+        .navigation-down .menu-1 dt {
+            font: normal 16px "微软雅黑";
+            color: #61789e;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #61789e;
+            margin-bottom: 10px
+        }
+
+        .navigation-down .menu-1 dd a {
+            /*color: #fff;*/
+            font: normal 14px/30px "microsoft yahei"
+        }
+
+        .navigation-down .menu-1 dd a:hover {
+            color: #60aff6
+        }
+
+        .navigation-down .menu-2 dd a, .navigation-down .menu-3 dd a {
+            /*color: #fff;*/
+            font: normal 16px "microsoft yahei"
+        }
     </style>
 </head>
 
@@ -32,7 +167,8 @@
             <div class="input-group">
                 <input type="text" class="form-control" style="border: 1px solid #337ab7;">
                 <span class="input-group-btn">
-						<button class="btn btn-default" type="button" style="border: 1px solid #337ab7;color: #fff;background:#337ab7;outline: none;">
+						<button class="btn btn-default" type="button"
+                                style="border: 1px solid #337ab7;color: #fff;background:#337ab7;outline: none;">
 							搜索
 						</button>
 					</span>
@@ -48,18 +184,163 @@
             </a>
         </div>
     </div>
+
+
     <div class="row">
-        <ul class="nav nav-pills nav-justified">
-            <li class="active"><a href="#">首页</a></li>
-            <li><a href="#">低值耗材</a></li>
-            <li><a href="#">高值耗材</a></li>
-            <li><a href="#">口腔用材</a></li>
-            <li><a href="#">公共药品</a></li>
-            <li><a href="#">特殊药品</a></li>
-            <li><a href="#">信息设备</a></li>
-            <li><a href="#">试剂</a></li>
-            <li><a href="#">全部</a></li>
-        </ul>
+        <div class="head-v3">
+
+            <div class="navigation-up">
+                <div class="navigation-inner">
+                    <div class="navigation-v3">
+                        <ul>
+                            <li _t_nav="home">
+                                <a href="#">首页</a>
+                            </li>
+                            <li class="" _t_nav="product">
+                                <a href="#">低值耗材</a>
+                            </li>
+                            <li class="" _t_nav="wechat">
+                                <a href="#">高值耗材</a>
+                            </li>
+                            <li class="" _t_nav="solution">
+                                <a href="#">口腔用材</a>
+                            </li>
+                            <li class="" _t_nav="cooperate">
+                                <a href="#">公共药品</a>
+                            </li>
+                            <li _t_nav="support">
+                                <a href="#">特殊药品</a>
+                            </li>
+                            <li _t_nav="support1">
+                                <a href="#">信息设备</a>
+                            </li>
+                            <li _t_nav="support2">
+                                <a href="#">试剂</a>
+                            </li>
+                            <li _t_nav="support3">
+                                <a href="#">全部</a>
+                            </li>
+                        </ul>
+                        <div class="dot">
+                            <ul><span></span></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-down">
+                <div id="product" class="nav-down-menu menu-1" style="display: none;" _t_nav="product">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dt>计算机与网络</dt>
+                            <dd>
+                                <a hotrep="hp.header.product.compute1" href="#">云服务器</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.compute2" href="#">弹性Web引擎</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.compute3" href="#">负载均衡</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>存储与CDN</dt>
+                            <dd>
+                                <a hotrep="hp.header.product.storage1" href="#">云数据库</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage2" href="#">NoSQL高速存储</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage4" href="#">对象存储服务(beta)</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage3" href="#">CDN</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>监控与安全</dt>
+                            <dd>
+                                <a hotrep="hp.header.product.monitoring1" href="#">云监控</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.monitoring2" href="#">云安全</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.monitoring3" href="#">云拨测</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>数据分析</dt>
+                            <dd>
+                                <a hotrep="hp.header.product.analysis1" href="#">腾讯云分析</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.analysis2" href="#">关键因子</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div id="solution" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="solution">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.solution.1" href="#">微信</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.solution.2" href="#">游戏</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.solution.3" href="#">移动应用</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div id="support" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="support">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.support.1" href="#">资料库</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.support.2" href="#">论坛</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.support.3" href="#">亿元扶持</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div id="cooperate" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="cooperate">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.partner.1" href="#">代理商</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.partner.2" href="#">微信服务商</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.partner.3" href="#">创投机构</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
