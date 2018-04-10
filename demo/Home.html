@@ -111,7 +111,7 @@
         .navigation-down .nav-down-menu {
             width: 100%;
             margin: 0;
-            background: #f6f6f6;
+            background: white;
             position: absolute;
             top: 0px
         }
@@ -180,13 +180,13 @@
             </a>
             <a href="#" style="margin: auto 0 auto 8px;">
                 <span class="glyphicon glyphicon-shopping-cart" style="font-size: 17px;"></span>
-                <span class="badge" style="font-size: 2px;margin: 0 0 10px">10</span>
+                <span class="badge" style="font-size: 2px;margin: 0 0 10px;background: red">10</span>
             </a>
         </div>
     </div>
 
 
-    <div class="row">
+    <div class="row" style="height: 80px">
         <div class="head-v3">
 
             <div class="navigation-up">
@@ -343,5 +343,62 @@
         </div>
     </div>
 </div>
+
+<div class="row" id="home_top_jpg">
+        <img src="../resources/images/pkuih.jpg" width="100%" height="300px">
+</div>
+<div class="row" id="home_top">
+    <div id="home_top_bg">
+        <img src="../resources/images/bg.png" width="100%" height="200px">
+    </div>
+    <table class="table" id="homeMaintable" border="0">
+        <tbody>
+        <tr>
+            <td><a href="#">聚焦两会|全国政协委员、北京大学国际医院院长建言分级诊疗</a></td>
+            <td>2018-03-09</td>
+        </tr>
+        <tr>
+            <td><a href="#">中国骨质疏松杂志：新的理念 新的平台—北京大学国际医院内分</a></td>
+            <td>2018-03-10</td>
+        </tr>
+        <tr>
+            <td><a href="#">中国骨质疏松杂志：新的理念 新的平台—北京大学国际医院内分</a></td>
+            <td>2018-03-10</td>
+        </tr>
+        <tr>
+            <td><a href="#">昌平圈：昌平这家医院杀入国际级榜单！</a></td>
+            <td>2018-03-10</td>
+        </tr>
+        <tr>
+            <td><a href="#">新京报：北京大学国际医院将设多学科肿瘤诊疗中心</a></td>
+            <td>2018-03-10</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<style type="text/css">
+    #home_top {
+        margin-top: -280px;
+    }
+
+    #home_top_bg {
+        width: 600px;
+        z-index: -2;
+        margin-left: 25%;
+    }
+
+    #homeMaintable {
+        width: 550px;
+        margin-top: -190px;
+        margin-left: 27%;
+    }
+    #homeMaintable td{
+        color: white;
+    }
+    #homeMaintable td a{
+        color: white;
+    }
+</style>
 </body>
 </html>
