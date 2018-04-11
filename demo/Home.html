@@ -80,8 +80,8 @@
             text-align: center;
             position: relative;
             z-index: -1;
-            margin-right: 25px;
-            margin-left: 25px;
+            margin-right: 27px;
+            margin-left: 27px;
         }
 
         .navigation-up .navigation-v3 li a {
@@ -165,16 +165,16 @@
             <img src="../resources/images/logo.png" width="200px">
         </div>
         <div class="col-xs-6" style="margin:2px">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
 						<button type="button" class="btn btn-primary" style="outline: none;">
 							搜索
 						</button>
 					</span>
-                </div>
+            </div>
         </div>
-        <div class="col-xs-3" style="padding: 0;margin:2px;float: right;">
+        <div class="col-xs-3" style="padding: 0;margin-top:2px;float: right;padding-left: 20px;">
             <button type="button" class="btn btn-primary" style="outline: none;">
                 <span class="glyphicon glyphicon-user">个人中心</span>
             </button>
@@ -344,47 +344,30 @@
     </div>
 </div>
 
-<div class="row col-xs-12" id="home_top_jpg" style="margin: 0px;padding: 0px;">
-    <img src="../resources/images/pkuih.jpg" width="100%" height="300px">
+<div class="row col-xs-8" id="home_top">
+    <div class="col-xs-4" id="home_news" style="">
+        <ul>
+            <li><a href="#">聚焦两会|全国政协委员、北京大学国际医院院长建言分级诊疗</a><span>2018-03-09</span></li>
+            <li><a href="#">中国骨质疏松杂志：新的理念 新的平台—北京大学国际医院内分</a><span>2018-03-09</span></li>
+            <li><a href="#">昌平圈：昌平这家医院杀入国际级榜单！</a><span>2018-03-09</span></li>
+            <li><a href="#">聚焦两会|全国政协委员、北京大学国际医院院长建言分级诊疗</a><span>2018-03-09</span></li>
+            <li><a href="#">新京报：北京大学国际医院将设多学科肿瘤诊疗中心</a><span>2018-03-09</span></li>
+        </ul>
+    </div>
+    <div class="col-xs-8" id="home_picture">
+        <img src="../resources/images/home_news_p.jpg">
+    </div>
 </div>
-<div class="row col-xs-12" id="home_top">
-    <div id="home_top_bg">
-        <img src="../resources/images/bg.png" width="100%" height="200px">
-    </div>
-    <table class="table" id="homeMaintable">
-        <tbody>
-        <tr>
-            <td><a href="#">聚焦两会|全国政协委员、北京大学国际医院院长建言分级诊疗</a></td>
-            <td>2018-03-09</td>
-        </tr>
-        <tr>
-            <td><a href="#">中国骨质疏松杂志：新的理念 新的平台—北京大学国际医院内分</a></td>
-            <td>2018-03-10</td>
-        </tr>
-        <tr>
-            <td><a href="#">中国骨质疏松杂志：新的理念 新的平台—北京大学国际医院内分</a></td>
-            <td>2018-03-10</td>
-        </tr>
-        <tr>
-            <td><a href="#">昌平圈：昌平这家医院杀入国际级榜单！</a></td>
-            <td>2018-03-10</td>
-        </tr>
-        <tr>
-            <td><a href="#">新京报：北京大学国际医院将设多学科肿瘤诊疗中心</a></td>
-            <td>2018-03-10</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="row col-xs-8" style="margin: 340px auto 20px;float: none;padding: 0px;">
+
+<div class="row col-xs-8" id="home_package">
     <div class="col-xs-4">
-        <img src="../resources/images/pkuih.jpg" width="100%" height="150px">
+        <img src="../resources/images/package_dept.png" >
     </div>
     <div class="col-xs-4">
-        <img src="../resources/images/pkuih.jpg" width="100%" height="150px">
+        <img src="../resources/images/package_hospital.png" >
     </div>
     <div class="col-xs-4">
-        <img src="../resources/images/pkuih.jpg" width="100%" height="150px">
+        <img src="../resources/images/package_my.png">
     </div>
 
 </div>
@@ -392,27 +375,59 @@
 
 <style type="text/css">
     #home_top {
-        margin-top: -280px;
+        float: none;
+        margin: 20px auto 20px;
     }
 
-    #home_top_bg {
-        width: 600px;
-        z-index: -2;
-        margin-left: 25%;
+    #home_news {
+        background: #f6f6f6;
+        height: 250px;
     }
 
-    #homeMaintable {
-        width: 550px;
-        margin-top: -190px;
-        margin-left: 27%;
+    #home_news ul {
+
+        width: 100%;
+        margin-top: 20px;
+        padding-left: 10px;
     }
 
-    #homeMaintable td {
-        color: white;
+    #home_news ul li {
+        margin: 5px;
+        white-space: nowrap; /**强制不换行*/
+        overflow: hidden; /**自动隐藏文字*/
+        text-overflow: ellipsis; /**文字隐藏后添加省略号*/
     }
 
-    #homeMaintable td a {
-        color: white;
+    #home_news ul li a {
+        color: #000000;
+    }
+
+    #home_news ul li span {
+        font-size: 13px;
+        color: #bdbdbd;
+        float: right; /*使span元素浮动到右面*/
+        text-align: right; /*日期右对齐*/
+    }
+
+    #home_picture{
+        /*padding: 0;*/
+        /*padding-left: 15px;*/
+    }
+    #home_picture img {
+        width: 100%;
+        height: 250px;
+    }
+
+    #home_package {
+        margin: 20px auto 20px;;
+        float: none;
+    }
+    #home_package div{
+        padding-left: 0px;
+    }
+    #home_package div img{
+        width: 100%;
+        height: 150px;
     }
 </style>
 </body>
