@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/idangerous.swiper.css">
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/js/idangerous.swiper.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Microsoft YaHei";
+            font-size: 12px;
+        }
+
+        .page-content {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .pc-slide {
+            width: 460px;
+            margin: 0 50px 40px 0;
+            float: left;
+        }
+
+        .view .swiper-container {
+            width: 460px;
+            height: 460px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .view .arrow-left {
+            background: url(../resources/images/carousel/index_tab_l.png) no-repeat left top;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            margin-top: -25px;
+            width: 28px;
+            height: 51px;
+            z-index: 10;
+        }
+
+        .view .arrow-right {
+            background: url(../resources/images/carousel/index_tab_r.png) no-repeat left bottom;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -25px;
+            width: 28px;
+            height: 51px;
+            z-index: 10;
+        }
+
+        .preview {
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .preview .swiper-container {
+            width: 397px;
+            height: 92px;
+            margin-left: 35px;
+        }
+
+        .preview .swiper-slide {
+            width: 97px;
+            height: 92px;
+        }
+
+        .preview .slide6 {
+            width: 82px;
+        }
+
+        .preview .arrow-left {
+            background: url(../resources/images/carousel/feel3.png) no-repeat left top;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            margin-top: -9px;
+            width: 9px;
+            height: 18px;
+            z-index: 10;
+        }
+
+        .preview .arrow-right {
+            background: url(../resources/images/carousel/feel4.png) no-repeat left bottom;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -9px;
+            width: 9px;
+            height: 18px;
+            z-index: 10;
+        }
+
+        .preview img {
+            padding: 1px;
+        }
+
+        .preview .active-nav img {
+            padding: 0;
+            border: 1px solid #519fed;;
+        }
+
+        .product-info-right {
+            width: 710px;
+            height: 460px;
+            float: left;
+        }
+
+        .product-info-right > .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 21px;
+        }
+
+        .product-price {
+            width: 710px;
+            height: 78px;
+            background-color: #f7f7f7;
+        }
+
+        .info-list {
+            line-height: 2.5;
+        }
+
+        .info-list > .row > div:first-child {
+            clear: both;
+            margin-left: 12px;
+            color: rgb(121, 121, 121);
+            /*line-height: 2.5;*/
+        }
+
+        .detail-list {
+            width: 60%;
+            margin: 35px 0px 0px 100px;
+        }
+
+        .detail-list > .row > div:first-child {
+            text-align: right;
+            color: rgb(78, 78, 78);
+        }
+
+        .detail-button > button {
+            border-radius: 0px;
+            border: 1px solid #1865b3;
+            margin-right: 10px;
+            width: 150px;
+            height: 50px;
+            background-color: #c6e2ff;
+            color: rgb(24, 101, 179);
+            line-height: 1.5;
+            font-size: 16px;
+
+        }
+
+        .detail-button > button:first-child {
+            background-color: #1865b3;
+            color: rgb(255, 255, 255);
+
+        }
+
+        .detail-tab {
+            height: 40px;
+            border-top: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7;
+            clear: left;
+            overflow: hidden;
+        }
+
+        .detail-tab > li {
+            font-size: 14px;
+            width: 130px;
+            height: 41px;
+            text-align: center;
+        }
+
+        .detail-tab > li > a {
+            color: #000;
+        }
+
+        .detail-tab > li > a:focus, .detail-tab > li > a:hover, .detail-tab .active {
+            background-color: #f6f6f6;
+            color: rgb(24, 101, 179);
+
+        }
+
+        .product-evaluate {
+            border-bottom: 1px dashed #e7e7e7;
+        }
+
+        .product-evaluate > .p-evaluate {
+            padding: 30px 0px 0px 20px;;
+            width: 12%;
+        }
+
+        .product-evaluate > .p-evaluate > img {
+            padding: 10px;
+        }
+
+        .product-evaluate > .p-evaluate > small {
+            color: rgb(131, 131, 131);
+            line-height: 1.5;
+        }
+
+        .product-evaluate .evaluate-word {
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            color: rgb(51, 51, 51);
+            line-height: 1.714;
+            padding: 45px 0px 20px;
+        }
+
+        .product-evaluate .evaluate-period {
+            margin-bottom: 30px;
+            color: rgb(138, 138, 138);
+            font-size: 12px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="page-content">
+    <div class="pc-slide">
+        <div class="view">
+            <div class="swiper-container">
+                <a class="arrow-left" href="#"></a>
+                <a class="arrow-right" href="#"></a>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1598&extra=" target="_blank"><img
+                                src="../resources/images/carousel/b1.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1598&extra=" target="_blank"><img
+                                src="../resources/images/carousel/b1.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1598&extra=" target="_blank"><img
+                                src="../resources/images/carousel/b1.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1598&extra=" target="_blank"><img
+                                src="../resources/images/carousel/b1.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1598&extra=" target="_blank"><img
+                                src="../resources/images/carousel/b1.png" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="http://bbs.swiper.com.cn/forum.php?mod=viewthread&tid=1598&extra=" target="_blank"><img
+                                src="../resources/images/carousel/b1.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="preview">
+            <a class="arrow-left" href="#"></a>
+            <a class="arrow-right" href="#"></a>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide active-nav">
+                        <img src="../resources/images/carousel/s1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../resources/images/carousel/s1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../resources/images/carousel/s1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../resources/images/carousel/s1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../resources/images/carousel/s1.png" alt="">
+                    </div>
+                    <div class="swiper-slide slide6">
+                        <img src="../resources/images/carousel/s1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-info-right">
+        <div class="product-title">
+            <span>迈德斯特康复吊环 康复训练护理床配件单支装 QG80-WD16G4</span>
+        </div>
+        <div class="product-price">
+            <span style="line-height: 78px; float: left; margin: 0px 55px 0px 12px;">商品价格</span>
+            <div class="dd" style=" float: left; line-height: 78px; color: #e4393c;">
+                <span class="p-price"> <span>￥</span> <span class="price" style="font-size: 22px;">560.00</span> </span>
+            </div>
+        </div>
+        <div class="info-list">
+            <div class="row">
+                <div class="col-lg-2">商品编号</div>
+                <div class="col-lg-2">60256555</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">商品类型</div>
+                <div class="col-lg-2">低值耗材</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">生产厂商</div>
+                <div class="col-lg-2">山东机械厂</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">库存</div>
+                <div class="col-lg-2">999</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">手术室库存</div>
+                <div class="col-lg-2">999</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">资质有效期</div>
+                <div class="col-lg-2">3年</div>
+            </div>
+            <div class="row" style="margin: 18px -15px 32px;">
+                <div class="col-lg-2">数量</div>
+                <div class="col-lg-3">
+                    <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick="modifyValBuyNum('buyNum','subtract');">
+                            -
+                        </button>
+                    </span>
+                        <input id="buyNum" type="text" class="form-control" value="1" style="text-align: center;">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick="modifyValBuyNum('buyNum','add');">
+                            +
+                        </button>
+                    </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 --><br>
+            </div><!-- /.row -->
+        </div>
+        <div class="detail-button">
+
+            <button type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-star-empty"></span>加入清单
+            </button>
+            <button type="button" class="btn btn-primary">加入收藏</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addToBag">
+                <span class="glyphicon glyphicon-briefcase"></span>加入包
+            </button>
+        </div>
+    </div>
+    <ul class="nav nav-pills detail-tab">
+        <li class="nav-item">
+            <a id="w-info" class="nav-link active" href="#" onclick="switchTab('info');return false;">详情</a>
+        </li>
+        <li class="nav-item">
+            <a id="w-evaluate" class="nav-link" href="#" onclick="switchTab('evaluate');return false;">评价（2000）</a>
+        </li>
+    </ul>
+    <div id="product-info-list" class="info-list detail-list">
+        <div class="row">
+            <div class="col-lg-2">类别</div>
+            <div class="col-lg-2">肩部保健</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">医疗器械注册证编号</div>
+            <div class="col-lg-2">非医疗器械产品</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">产地</div>
+            <div class="col-lg-2">德国</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">型号</div>
+            <div class="col-lg-2">cardiophon</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">适用人群</div>
+            <div class="col-lg-2">通用版</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">材质</div>
+            <div class="col-lg-2">不锈钢</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">产品尺寸（cm）</div>
+            <div class="col-lg-2">32*17*5</div>
+        </div>
+    </div>
+
+    <div id="product-evaluate-list" class="hidden">
+        <div class="row product-evaluate">
+            <div class="col-lg-2 p-evaluate">
+                <img src="../resources/images/商品评价1.png">
+                <small>张**三</small>
+            </div>
+            <div class="col-lg-10">
+                <p class="evaluate-word">
+                    很不错、茶有回甘、茶汤颜色清亮、泡出的茶水清纯甘甜、味道醇厚，颜色正，耐泡，总之性价比挺高喝着高山韵显，这款包装虽简单，但是茶叶确实好喝，茶香比较浓郁，甘醇滑口，泡出来香气纯正，茶叶喝完口齿留香，放心的卖家以后，一如既往的好
+                    有需要还会再来的是个放心的良心卖家，价格合理，店家也很好
+                </p>
+                <p class="evaluate-period">
+                    <small>2018-04-11 9:33</small>
+                </p>
+            </div>
+        </div>
+        <div class="row product-evaluate">
+            <div class="col-lg-2 p-evaluate">
+                <img src="../resources/images/商品评价1.png">
+                <small>张**三</small>
+            </div>
+            <div class="col-lg-10">
+                <p class="evaluate-word">
+                    很不错、茶有回甘、茶汤颜色清亮、泡出的茶水清纯甘甜、味道醇厚，颜色正，耐泡，总之性价比挺高喝着高山韵显，这款包装虽简单，但是茶叶确实好喝，茶香比较浓郁，甘醇滑口，泡出来香气纯正，茶叶喝完口齿留香，放心的卖家以后，一如既往的好
+                    有需要还会再来的是个放心的良心卖家，价格合理，店家也很好
+                </p>
+                <p class="evaluate-period">
+                    <small>2018-04-11 9:33</small>
+                </p>
+            </div>
+        </div>
+        <div class="row product-evaluate">
+            <div class="col-lg-2 p-evaluate">
+                <img src="../resources/images/商品评价1.png">
+                <small>张**三</small>
+            </div>
+            <div class="col-lg-10">
+                <p class="evaluate-word">
+                    很不错、茶有回甘、茶汤颜色清亮、泡出的茶水清纯甘甜、味道醇厚，颜色正，耐泡，总之性价比挺高喝着高山韵显，这款包装虽简单，但是茶叶确实好喝，茶香比较浓郁，甘醇滑口，泡出来香气纯正，茶叶喝完口齿留香，放心的卖家以后，一如既往的好
+                    有需要还会再来的是个放心的良心卖家，价格合理，店家也很好
+                </p>
+                <p class="evaluate-period">
+                    <small>2018-04-11 9:33</small>
+                </p>
+            </div>
+        </div>
+        <div class="row product-evaluate">
+            <div class="col-lg-2 p-evaluate">
+                <img src="../resources/images/商品评价1.png">
+                <small>张**三</small>
+            </div>
+            <div class="col-lg-10">
+                <p class="evaluate-word">
+                    很不错、茶有回甘、茶汤颜色清亮、泡出的茶水清纯甘甜、味道醇厚，颜色正，耐泡，总之性价比挺高喝着高山韵显，这款包装虽简单，但是茶叶确实好喝，茶香比较浓郁，甘醇滑口，泡出来香气纯正，茶叶喝完口齿留香，放心的卖家以后，一如既往的好
+                    有需要还会再来的是个放心的良心卖家，价格合理，店家也很好
+                </p>
+                <p class="evaluate-period">
+                    <small>2018-04-11 9:33</small>
+                </p>
+            </div>
+        </div>
+        <div style="text-align: center; margin: 40px auto 0px;">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li class="disabled"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addToBag" tabindex="-1" role="dialog" aria-labelledby="addToBagLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="addToBagLabel">
+                    加入包
+                </h4>
+            </div>
+            <div class="modal-body">
+                <select class="form-control" style="border-radius: 0px; margin: 25px auto; width: 70%;">
+                    <option value="" disabled selected hidden>选择要加入的包</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <div style="text-align: center;margin: 40px 0px 60px;">
+                    <span><a href="#" onclick="modifyTestBuyNum('numInBag','subtract')"><img
+                            src="../resources/images/round_sub.png"></a></span>
+                    <span id="numInBag" style="padding: 5px;font-size: 14px;">1</span>
+                    <span><a href="#" onclick="modifyTestBuyNum('numInBag','add')"><img
+                            src="../resources/images/round_add..png"></a></span>
+                </div>
+            </div>
+            <div class="modal-footer-noline">
+                <button type="button" class="btn btn-primary">
+                    确认
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div id="page_right"></div>
+<div id="page_foot"></div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#page_foot").load("layout/page_foot.html");
+        $("#page_right").load("layout/page_right.html");
+    });
+
+    function modifyValBuyNum(valueId, addOrSubtract) {
+        var originVal = $('#' + valueId).val();
+        if (originVal == undefined || originVal == '' || parseInt(originVal) < 1) {
+            originVal = 1;
+        }
+        if (addOrSubtract == 'add') {
+            $('#' + valueId).val(parseInt(originVal) + 1);
+        } else if (addOrSubtract == 'subtract') {
+            $('#' + valueId).val(parseInt(originVal) - 1);
+        }
+    }
+    function modifyTestBuyNum(valueId, addOrSubtract) {
+        var originVal = $('#' + valueId).text();
+        if (originVal == undefined || originVal == '' || parseInt(originVal) < 1) {
+            originVal = 1;
+        }
+        if (addOrSubtract == 'add') {
+            $('#' + valueId).text(parseInt(originVal) + 1);
+        } else if (addOrSubtract == 'subtract') {
+            $('#' + valueId).text(parseInt(originVal) - 1);
+        }
+    }
+
+    function switchTab(showId) {
+        if (showId == "info") {
+            $('#product-info-list').removeClass('hidden');
+            $('#product-evaluate-list').addClass('hidden');
+            $('#w-info').addClass('active');
+            $('#w-evaluate').removeClass('active');
+        } else {
+            $('#product-info-list').addClass('hidden');
+            $('#product-evaluate-list').removeClass('hidden');
+            $('#w-info').removeClass('active');
+            $('#w-evaluate').addClass('active');
+        }
+    }
+    var viewSwiper = new Swiper('.view .swiper-container', {
+        onSlideChangeStart: function () {
+            updateNavPosition()
+        }
+    });
+
+    $('.view .arrow-left,.preview .arrow-left').on('click', function (e) {
+        e.preventDefault();
+        if (viewSwiper.activeIndex == 0) {
+            viewSwiper.swipeTo(viewSwiper.slides.length - 1, 1000);
+            return
+        }
+        viewSwiper.swipePrev()
+    });
+    $('.view .arrow-right,.preview .arrow-right').on('click', function (e) {
+        e.preventDefault();
+        if (viewSwiper.activeIndex == viewSwiper.slides.length - 1) {
+            viewSwiper.swipeTo(0, 1000);
+            return
+        }
+        viewSwiper.swipeNext()
+    });
+
+    var previewSwiper = new Swiper('.preview .swiper-container', {
+        visibilityFullFit: true,
+        slidesPerView: 'auto',
+        onlyExternal: true,
+        onSlideClick: function () {
+            viewSwiper.swipeTo(previewSwiper.clickedSlideIndex)
+        }
+    });
+
+    function updateNavPosition() {
+        $('.preview .active-nav').removeClass('active-nav');
+        var activeNav = $('.preview .swiper-slide').eq(viewSwiper.activeIndex).addClass('active-nav');
+        if (!activeNav.hasClass('swiper-slide-visible')) {
+            if (activeNav.index() > previewSwiper.activeIndex) {
+                var thumbsPerNav = Math.floor(previewSwiper.width / activeNav.width()) - 1;
+                previewSwiper.swipeTo(activeNav.index() - thumbsPerNav)
+            } else {
+                previewSwiper.swipeTo(activeNav.index())
+            }
+        }
+    }
+</script>
+</body>
+<style type="text/css">
+    .modal-content {
+        border-radius: 0px;
+        height: 350px;
+        width: 360px;
+    }
+
+    .modal-header {
+        background-color: #ededed;
+    }
+
+    .modal-title {
+        font-size: 16px;
+
+        font-weight: bold;
+
+    }
+
+    .modal-dialog {
+        margin-top: 150px;
+    }
+
+    .modal-footer-noline {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .modal-footer-noline .btn-primary {
+        height: 40px;
+        width: 280px;
+        background-color: #1865b3;
+    }
+</style>
+</html>
