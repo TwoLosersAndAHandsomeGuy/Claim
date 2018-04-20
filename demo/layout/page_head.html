@@ -1,0 +1,387 @@
+<script type="text/javascript" src="../resources/js/megamenu.js"></script>
+<style type="text/css">
+    .head-v3 {
+        position: relative;
+        z-index: 100;
+        min-width: 800px
+    }
+
+    .head-v3 .navigation-inner {
+        margin: 0 auto;
+        width: 100%;
+        position: relative
+    }
+
+    .navigation-up .navigation-v3 {
+        margin-left: 155px;
+        float: left;
+        _margin-left: 10px
+    }
+
+    .navigation-up .navigation-v3 ul {
+        width: auto;
+        overflow: hidden;
+        height: auto;
+        position: absolute;
+        left: 46%;
+        top: 0;
+        margin-left: -500px;
+        z-index: 30;
+        padding-left: 0px;
+    }
+
+    .navigation-up .navigation-v3 ul .active {
+        border-bottom: 3px solid #387bbe;
+    }
+
+    .navigation-up .navigation-v3 .active a {
+        color: #387bbe;
+    }
+
+    .navigation-up .navigation-v3 li {
+        width: auto;
+        height: auto;
+        overflow: hidden;
+        float: left;
+        text-align: center;
+        position: relative;
+        z-index: -1;
+        margin: 0px 33px;
+    }
+
+    .navigation-up .navigation-v3 li a {
+        width: 100%;
+        height: 60px;
+        line-height: 80px;
+        display: block;
+        float: left;
+        font-size: 16px;
+        color: #666;
+        text-decoration: none;
+        display: block;
+    }
+
+    /*hover*/
+    .navigation-up .navigation-v3 li.nav-up-selected a {
+        color: #387bbe;
+    }
+
+    .navigation-down {
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        width: 100%
+    }
+
+    .navigation-down .nav-down-menu {
+        width: 100%;
+        margin: 0;
+        background: white;
+        position: absolute;
+        top: 0px
+    }
+
+    .navigation-down .nav-down-menu .navigation-down-inner {
+        width: 100%;
+        position: relative;
+        margin-left: 50px;
+    }
+
+    /* 下部按钮水平排列 */
+    .navigation-down .nav-down-menu dl {
+        float: left;
+        margin: 18px 80px 0 0
+    }
+
+    .navigation-down .menu-1 dl {
+        margin: 20px 80px 25px 0
+    }
+
+    .navigation-down .menu-1 dt {
+        font-size: 16px;
+        color: #61789e;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #61789e;
+        margin-bottom: 10px
+    }
+
+    .navigation-down .menu-1 dd a {
+        font: normal 14px/30px "microsoft yahei";
+        color: rgb(65, 65, 65);
+    }
+
+    .navigation-down .menu-1 dd:before {
+        content: ">";
+        color: #919191;
+        padding-right: 10px;
+    }
+
+    .navigation-down .menu-1 dd a:hover {
+        color: #60aff6
+    }
+
+    .search-context input {
+        border: 2px solid #1865b3;
+        border-radius: 0px;
+        height: 40px;
+    }
+
+    .search-context button {
+        width: 60px;
+        height: 40px;
+    }
+
+    .head-btn-group button {
+        height: 37px;
+        border-radius: 3px;
+    }
+
+    .head-btn-group button img {
+        margin: 0px 5px 3px 0px;
+    }
+
+    .head-btn-group .btn-car {
+        background-color: #eef9fb;
+        color: #1865b3;
+    }
+
+    .head-btn-group .btn-car:active:focus, .head-btn-group .btn-car:hover {
+        background-color: #eaf3f5;
+        color: #1865b3;
+    }
+
+    .head-btn-group .btn-car .badge {
+        background-color: #337ab7;
+        color: #fff;
+        border-color: #337ab7;
+    }
+
+    .head-btn-group .button img {
+        padding: 0px 5px 3px;
+    }
+</style>
+
+<div class="row" style="float:none; margin: 20px auto 20px;max-width: 1100px;">
+    <div class="row" style="margin: 20px 10px 20px;">
+        <div class="col-xs-3" style="padding: 0;width: 22%;margin-right: 80px;">
+            <img src="../resources/images/logo/logo.png" style="width: 250px;">
+        </div>
+        <div class="col-xs-6" style="width: 350px; margin-top: 5px;">
+            <div class="input-group search-context">
+                <input type="text" class="form-control " style="width: 350px;">
+                <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" style="outline: none;" onclick="searchContext();">
+                            搜索
+                        </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-3 head-btn-group" style="padding: 0;margin-top: 5px;float: right;padding-left: 20px;">
+            <button type="button" class="btn btn-primary" style="outline: none;">
+                <img src="../resources/images/button/personal_center_white.png"/>个人中心
+            </button>
+            <button type="button" class="btn btn-primary btn-car" style="margin-left:6px;">
+                <img src="../resources/images/button/shop_car_bule.png"/>购物车
+                <span class="badge" style="">10</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row" style="height: 80px">
+        <div class="head-v3">
+
+            <div class="navigation-up">
+                <div class="navigation-inner">
+                    <div class="navigation-v3">
+                        <ul>
+                            <li class="active" _t_nav="home">
+                                <a href="home.html">首页</a>
+                            </li>
+                            <li class="" _t_nav="product">
+                                <a href="product-list.html">低值耗材</a>
+                            </li>
+                            <li class="" _t_nav="wechat">
+                                <a href="#">高值耗材</a>
+                            </li>
+                            <li class="" _t_nav="solution">
+                                <a href="#">口腔用材</a>
+                            </li>
+                            <li class="" _t_nav="cooperate">
+                                <a href="#">公共药品</a>
+                            </li>
+                            <li _t_nav="support">
+                                <a href="#">特殊药品</a>
+                            </li>
+                            <li _t_nav="support1">
+                                <a href="#">信息设备</a>
+                            </li>
+                            <li _t_nav="support2">
+                                <a href="#">试剂</a>
+                            </li>
+                            <li _t_nav="support3">
+                                <a href="#">全部</a>
+                            </li>
+                        </ul>
+                        <div class="dot">
+                            <ul><span></span></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-down">
+                <div id="product" class="nav-down-menu menu-1" style="display: none;" _t_nav="product">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.product.compute1" href="#">注射器</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.compute2" href="#">针管</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.compute3" href="#">输血管</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.compute3" href="#">静脉导管</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.compute3" href="#">吸氧管</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.product.storage1" href="#">吸氧面罩</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage2" href="#">标本袋</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage4" href="#">纱布</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage3" href="#">电极板</a>
+                            </dd>
+                            <dd>
+                                <a hotrep="hp.header.product.storage3" href="#">红蛋白吸管</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.product.monitoring1" href="#">反应盘</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div id="solution" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="solution">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.solution.1" href="#">微信</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.solution.2" href="#">游戏</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.solution.3" href="#">移动应用</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div id="support" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="support">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.support.1" href="#">资料库</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.support.2" href="#">论坛</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a class="link" hotrep="hp.header.support.3" href="#">亿元扶持</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div id="cooperate" class="nav-down-menu menu-3 menu-1" style="display: none;" _t_nav="cooperate">
+                    <div class="navigation-down-inner">
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.partner.1" href="#">代理商</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.partner.2" href="#">微信服务商</a>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd>
+                                <a hotrep="hp.header.partner.3" href="#">创投机构</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var qcloud = {};
+        $('[_t_nav]').hover(function () {
+            var _nav = $(this).attr('_t_nav');
+            clearTimeout(qcloud[_nav + '_timer']);
+            qcloud[_nav + '_timer'] = setTimeout(function () {
+                $('[_t_nav]').each(function () {
+                    $(this)[_nav == $(this).attr('_t_nav') ? 'addClass' : 'removeClass']('nav-up-selected');
+                });
+                $('#' + _nav).stop(true, true).slideDown(200);
+            }, 150);
+
+
+        }, function () {
+            var _nav = $(this).attr('_t_nav');
+            clearTimeout(qcloud[_nav + '_timer']);
+            qcloud[_nav + '_timer'] = setTimeout(function () {
+                $('[_t_nav]').removeClass('nav-up-selected');
+                $('#' + _nav).stop(true, true).slideUp(200);
+            }, 150);
+        });
+
+        switchNav();
+    });
+
+    function switchNav() {
+        var curr_location = location.href.toLocaleLowerCase();
+        //遍历所有的a标签
+        $(".navigation-up .navigation-v3 li a").each(function () {
+            //看当前的a标签的href在当前location中存不存在
+            var curr_a = $(this).attr("href").toLocaleLowerCase();
+
+            if (curr_location.indexOf(curr_a) != -1 && curr_a != "" && curr_a != "#") {
+                //从当前location标签匹配到了当前a
+                //此处控制选中项的样式
+                $(this).parent("li").addClass("active");
+            } else {
+                $(this).parent("li").removeClass("active");
+            }
+        });
+    }
+
+    function searchContext() {
+        window.location.href = '../demo/product-list.html';
+    }
+
+</script>
+

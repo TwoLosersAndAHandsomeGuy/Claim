@@ -1,0 +1,57 @@
+body {
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+}
+
+.page-content-bg {
+    background-color: #f7f7f7;
+    padding-bottom: 40px;
+}
+
+/*width：63%*/
+/*@media (min-width: 1200px) {*/
+/*.page-content {*/
+/*max-width: 820px;*/
+/*margin: 0px 150px;*/
+/*overflow: hidden;*/
+/*}*/
+/*}*/
+
+/*@media (min-width: 1411px) {*/
+/**/
+/*}*/
+.page-content {
+    max-width: 1100px;
+    margin: 0px 210px;
+    overflow: hidden;
+}
+
+/*modal*/
+.modal-content {
+    border-radius: 0px;
+}
+
+.modal-header {
+    background-color: #ededed;
+}
+
+.modal-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal-footer-center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-footer-center .btn-primary {
+    height: 40px;
+    width: 280px;
+    background-color: #1865b3;
+}
+
+.input-straight {
+    border-radius: 0px;
+    border-color: #e5e5e5;
+}

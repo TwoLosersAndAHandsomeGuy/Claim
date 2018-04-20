@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>申领平台</title>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../resources/bootstrap/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/base.css">
+
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="../resources/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript"
+            src="../resources/bootstrap/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <script type="text/javascript" src="../resources/js/megamenu.js"></script>
+
+    <style type="text/css">
+        #home_top {
+            float: none;
+            margin: 20px auto 20px;
+        }
+
+        #home_news {
+            background: #f6f6f6;
+            height: 250px;
+            width: 32%;
+        }
+
+        #home_news ul {
+            width: 100%;
+            margin-top: 20px;
+            padding-left: 10px;
+        }
+
+        #home_news ul li {
+            margin: 5px;
+            white-space: nowrap; /**强制不换行*/
+            overflow: hidden; /**自动隐藏文字*/
+            text-overflow: ellipsis; /**文字隐藏后添加省略号*/
+            word-wrap: normal;
+        }
+
+        #home_news ul li a {
+            color: #000000;
+        }
+
+        #home_news ul li span {
+            font-size: 13px;
+            color: #bdbdbd;
+            float: right; /*使span元素浮动到右面*/
+            text-align: right; /*日期右对齐*/
+        }
+
+        #home_picture {
+            padding-right: 2px;
+        }
+
+        #home_picture img {
+            width: 100%;
+            height: 250px;
+        }
+
+        #home_package {
+            margin: 20px auto 20px;;
+            float: none;
+        }
+
+        #home_package div {
+            padding-left: 0px;
+        }
+
+        #home_package div img {
+            width: 100%;
+            height: 150px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="page_head"></div>
+<div class="page-content">
+
+    <div class="row" id="home_top">
+        <div class="col-xs-4" id="home_news">
+            <ul>
+                <li><a href="#">聚焦两会|全国政协委员、北京大学国际医院院长建言分级诊疗</a><span>2018-03-09</span></li>
+                <li><a href="#">中国骨质疏松杂志：新的理念 新的平台—北京大学国际医院内分</a><span>2018-03-09</span></li>
+                <li><a href="#">昌平圈：昌平这家医院杀入国际级榜单！</a><span>2018-03-09</span></li>
+                <li><a href="#">聚焦两会|全国政协委员、北京大学国际医院院长建言分级诊疗</a><span>2018-03-09</span></li>
+                <li><a href="#">新京报：北京大学国际医院将设多学科肿瘤诊疗中心</a><span>2018-03-09</span></li>
+            </ul>
+        </div>
+        <div class="col-xs-8" id="home_picture">
+            <img src="../resources/images/banner/home_news_p.jpg">
+        </div>
+    </div>
+
+    <div class="row" id="home_package">
+        <div class="col-xs-4">
+            <a href="hospital_bag.html">
+                <img src="../resources/images/banner/package_dept.png">
+            </a>
+        </div>
+        <div class="col-xs-4">
+            <a href="hospital_bag.html">
+                <img src="../resources/images/banner/package_hospital.png">
+            </a>
+        </div>
+        <div class="col-xs-4">
+            <img src="../resources/images/banner/package_my.png">
+        </div>
+    </div>
+</div>
+<div class="page-content-bg">
+    <div class="page-content">
+        <h3 style="font-weight: bold;">我最常用</h3>
+        <div id="goods-list"></div>
+    </div>
+</div>
+<div id="page_foot"></div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#page_head").load("layout/page_head.html");
+        $("#goods-list").load("shared/product_item.html");
+        $("#page_foot").load("layout/page_foot.html");
+        var qcloud = {};
+        $('[_t_nav]').hover(function () {
+            var _nav = $(this).attr('_t_nav');
+            clearTimeout(qcloud[_nav + '_timer']);
+            qcloud[_nav + '_timer'] = setTimeout(function () {
+                $('[_t_nav]').each(function () {
+                    $(this)[_nav == $(this).attr('_t_nav') ? 'addClass' : 'removeClass']('nav-up-selected');
+                });
+                $('#' + _nav).stop(true, true).slideDown(200);
+            }, 150);
+
+
+        }, function () {
+            var _nav = $(this).attr('_t_nav');
+            clearTimeout(qcloud[_nav + '_timer']);
+            qcloud[_nav + '_timer'] = setTimeout(function () {
+                $('[_t_nav]').removeClass('nav-up-selected');
+                $('#' + _nav).stop(true, true).slideUp(200);
+            }, 150);
+        });
+    });
+
+</script>
+</html>

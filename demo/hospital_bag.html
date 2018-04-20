@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医院专用包</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/base.css">
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+
+        .modify-hos-bag {
+            height: 40px;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            padding-top: 10px;
+        }
+
+        .modify-hos-bag > span {
+            margin-left: 30px;
+            font-size: 14px;
+            color: rgb(24, 101, 179);
+        }
+
+        .search-condition {
+            /*height: 120px;*/
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .search-condition > .search-sort-wrap,
+        .search-condition > .search-order-wrap {
+            position: relative;
+            overflow: hidden;
+            margin: 0px 20px;
+            padding-top: 20px;
+            height: 50px;
+            background-color: #fff;
+        }
+
+        .search-condition > .search-order-wrap {
+        }
+
+        .search-condition > div:first-child {
+            border-bottom: 1px dashed #e5e5e5;
+        }
+
+        .search-condition li {
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 10px;
+            list-style: none;
+            color: rgb(34, 34, 34);
+            font-size: 14px;
+        }
+
+        .search-condition .search-condition-begin {
+            float: left;
+            font-size: 14px;
+            color: rgb(129, 129, 129);
+        }
+
+        .search-condition .search-sort,
+        .search-condition .search-order {
+            float: left;
+        }
+
+        .search-condition .search-sort-more {
+            position: absolute;
+            right: 0px;
+        }
+
+        .search-condition .search-sort-more a {
+            font-size: 14px;
+            color: #898989;
+        }
+
+        .search-condition .search-sort {
+            width: 90%;
+        }
+
+        .search-condition li > a {
+            color: rgb(34, 34, 34);
+            font-size: 14px;
+        }
+
+        .search-condition li > a:hover, .search-condition li > a:focus {
+            color: rgb(81, 159, 237);
+            text-decoration: none;
+        }
+
+        .search-condition .active,
+        .search-condition .active > a {
+            color: rgb(81, 159, 237);
+            text-decoration: none;
+        }
+
+        .search-condition .search-conform {
+            width: 250px;
+            float: right;
+            position: relative;
+            bottom: 15px;
+        }
+
+        .search-condition .search-conform button, .search-condition .search-conform input {
+            border-radius: 0px;
+            border-color: #e5e5e5;
+            height: 40px;
+        }
+
+        .breadcrumb > li + li:before {
+            content: "> ";
+        }
+
+    </style>
+</head>
+<body>
+<div id="page_head"></div>
+<div class="page-content-bg">
+
+    <div class="page-content">
+        <ol class="breadcrumb" style="height: 50px; margin: 0px; padding: 20px 15px;">
+            <li><a href="#">首页</a></li>
+            <li class="active">我的包</li>
+            <li class="active">医院专用包</li>
+        </ol>
+
+        <div class="modify-hos-bag" style="display: none">
+            <span><a href="#">全部专用包</a></span>
+            <span><a href="#">添加专用包</a></span>
+            <span><a href="#">删除专用包</a></span>
+            <span><a href="#" data-toggle="modal" data-target="#editMmaterial">编辑物料</a></span>
+            <span>
+                <button type="button" class="btn btn-primary btn-xs" style="width: 70px; height: 25px;">
+                    <img src="../resources/images/button/import.png">导入
+                </button>
+            </span>
+        </div>
+        <div class="search-condition">
+            <div class="search-sort-wrap">
+                <span class="search-condition-begin">分类：</span>
+                <ul class="search-sort">
+                    <!--<li>分类：</li>-->
+                    <li class="active"><a href="#">全部</a></li>
+                    <li><a href="#">注射器</a></li>
+                    <li><a href="#">一次性输血针</a></li>
+                    <li><a href="#">一次性输血器</a></li>
+                    <li><a href="#">静脉导管</a></li>
+
+                    <li><a href="#">注射器</a></li>
+                    <li><a href="#">一次性输血针</a></li>
+                    <li><a href="#">一次性输血器</a></li>
+                    <li><a href="#">静脉导管</a></li>
+                    <li><a href="#">注射器</a></li>
+                    <li><a href="#">一次性输血针</a></li>
+                    <li><a href="#">一次性输血器</a></li>
+                    <li><a href="#">静脉导管</a></li>
+                    <li><a href="#">注射器</a></li>
+                    <li><a href="#">一次性输血针</a></li>
+                    <li><a href="#">一次性输血器</a></li>
+                    <li><a href="#">静脉导管</a></li>
+
+                </ul>
+                <span class="search-sort-more">
+                    <a href="#" onclick="showMoreSort(this,'search-sort-wrap');">更多</a>
+                    <img src="../resources/images/button/arrow_down.png">
+                </span>
+            </div>
+            <div class="search-order-wrap">
+                <span class="search-condition-begin">排序：</span>
+                <ul class="search-order">
+                    <!--<li>排序：</li>-->
+                    <li class="active"><a href="#">默认</a></li>
+                    <li><a href="#">价格</a>
+                        <img src="../resources/images/button/condition_price.png" style="margin-left: 5px;">
+                    </li>
+                    <li>
+                        <a href="#">销量</a>
+                        <img src="../resources/images/button/condition_sale.png" style="margin-left: 5px;">
+                        <img src="../resources/images/button/search_round.png" style="margin-left: 5px;">
+                    </li>
+                </ul>
+                <div class="input-group search-conform">
+                    <input type="text" class="form-control" id="search" placeholder="在结果中搜索" style="width: 280px;">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><img
+                            src="../resources/images/button/search_blue.png"></button>
+                </span>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 50px; padding: 13px 30px;">
+            <p style="text-align: right">
+                <button type="button" class="btn btn-default btn-xs  disabled" style="width: 60px; height: 25px;">上一页
+                </button>
+                <span style="padding: 7px;"><span>1/30</span></span>
+                <button type="button" class="btn btn-primary btn-xs" style="width: 60px; height: 25px;">下一页</button>
+            </p>
+        </div>
+
+        <div id="goods-list"></div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="editMmaterial" tabindex="-1" role="dialog" aria-labelledby="editMmaterialLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="editMmaterialLabel">
+                    编辑物料
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form class="form-inline">
+                        <select class="form-control"
+                                style="border-radius: 0px;width: 280px;height: 40px;">
+                            <option value="" disabled selected hidden>选择专用包</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <button type="button" class="btn btn-primary" style="width: 120px;height: 40px; float: right">
+                            导入专用包
+                        </button>
+                    </form>
+                </div>
+
+                <div style="height: 40px;background-color: #f3f3f3">
+
+                </div>
+
+                <table class="table myTable">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox">全选</th>
+                        <th>物料编号</th>
+                        <th>物料名称</th>
+                        <th>规格型号</th>
+                        <th>生产厂商</th>
+                        <th>供应商名称</th>
+                        <th>资质状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2501001</td>
+                        <td>艾弗森听诊器</td>
+                        <td>一件</td>
+                        <td>山东机械厂</td>
+                        <td>北京北医医药有限公司</td>
+                        <td>有效</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2501001</td>
+                        <td>艾弗森听诊器</td>
+                        <td>一件</td>
+                        <td>山东机械厂</td>
+                        <td>北京北医医药有限公司</td>
+                        <td>有效</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div style="height: 50px; padding: 13px 30px;">
+                    <p style="text-align: center">
+                        <button type="button" class="btn btn-default btn-xs  disabled"
+                                style="width: 60px; height: 25px;">上一页
+                        </button>
+                        <span style="padding: 7px;"><span>1/30</span></span>
+                        <button type="button" class="btn btn-primary btn-xs" style="width: 60px; height: 25px;">下一页
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer-center">
+                <button type="button" class="btn btn-primary">
+                    确认添加
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="addMmaterial" tabindex="-1" role="dialog" aria-labelledby="addMmaterialLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="addMmaterialLabel">
+                    编辑物料
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="email" class="form-control input-straight" placeholder="输入物料编号"
+                               style="width: 330px;height: 40px;margin-right: 20px">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-straight" placeholder="输入物料名称"
+                               style="width: 330px;height: 40px; margin-right: 20px">
+                    </div>
+                    <button type="button" class="btn btn-primary" style="width: 120px;height: 40px">查询</button>
+                </form>
+                <table class="table myTable">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox">全选</th>
+                        <th>物料编号</th>
+                        <th>物料名称</th>
+                        <th>规格型号</th>
+                        <th>生产厂商</th>
+                        <th>供应商名称</th>
+                        <th>资质状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2501001</td>
+                        <td>艾弗森听诊器</td>
+                        <td>一件</td>
+                        <td>山东机械厂</td>
+                        <td>北京北医医药有限公司</td>
+                        <td>有效</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2501001</td>
+                        <td>艾弗森听诊器</td>
+                        <td>一件</td>
+                        <td>山东机械厂</td>
+                        <td>北京北医医药有限公司</td>
+                        <td>有效</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div style="height: 50px; padding: 13px 30px;">
+                    <p style="text-align: center">
+                        <button type="button" class="btn btn-default btn-xs  disabled"
+                                style="width: 60px; height: 25px;">上一页
+                        </button>
+                        <span style="padding: 7px;"><span>1/30</span></span>
+                        <button type="button" class="btn btn-primary btn-xs" style="width: 60px; height: 25px;">下一页
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer-center">
+                <button type="button" class="btn btn-primary">
+                    确认添加
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div id="page_right"></div>
+<div id="page_foot"></div>
+<script type="text/javascript">
+    $(function () {
+        $("#page_head").load("layout/page_head.html");
+        $("#goods-list").load("shared/product_item.html");
+        $("#page_foot").load("layout/page_foot.html");
+        $("#page_right").load("layout/page_right.html");
+    });
+    function showMoreSort($this, id) {
+        if ($($this).html() == "更多") {
+            $($this).html("收起");
+            $('.' + id).css("height", "auto")
+        } else {
+            $($this).html("更多");
+            $('.' + id).css("height", "50px")
+        }
+    }
+</script>
+</body>
+<style type="text/css">
+
+    .modal-dialog {
+        width: 860px;
+    }
+
+    .modal-content {
+        max-height: 660px;
+        width: 860px;
+    }
+
+    .myTable {
+        margin-top: 20px;
+    }
+
+    .myTable > thead > tr {
+        border: 1px solid #dedede;
+    }
+
+    .myTable > thead > tr > th {
+        vertical-align: middle;
+        border-bottom: 0px solid #dedede;
+    }
+
+    .myTable > tbody > tr {
+        vertical-align: middle;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .myTable > tbody > tr > td {
+        border-width: 0px;
+    }
+</style>
+</html>
