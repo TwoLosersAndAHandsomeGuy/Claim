@@ -1,0 +1,12 @@
+.icon-delete {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/button/delete.png);
+}
+.icon-star-gray {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/button/collection_gray.png);
+}
