@@ -10,3 +10,27 @@
     height: 18px;
     background: url(../images/button/collection_gray.png);
 }
+.icon-collapse {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/button/collapse.png);
+}
+.icon-expand {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/button/expand.png);
+}
+.icon-lower-right-corner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/button/lower_right_corner.png);
+}
+.icon-prompt-sucess {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: url(../images/prompt/sucess.png);
+}

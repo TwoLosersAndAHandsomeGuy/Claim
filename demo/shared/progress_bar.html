@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .my-progress-bar {
+            margin-bottom: 20px;
+            height: 120px;
+            border-top: 3px solid #1865b3;
+            background-color: #fff;
+        }
+
+        .my-progress-bar .progress-bar-wrap {
+            position: relative;
+            margin: 30px auto;
+            width: 520px;
+            height: 50px;
+        }
+
+        .progress-bar-round-1,
+        .progress-bar-round-2,
+        .progress-bar-round-3 {
+            position: relative;
+            float: left;
+            width: 30px;
+            height: 30px;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            border-radius: 80%;
+            box-shadow: 0 0 0 6px #2abf5c inset;
+            color: #2abf5c;
+        }
+
+        .progress-bar-round-1:after {
+            content: "我的购物车";
+        }
+
+        .progress-bar-round-2:after {
+            content: "核对订单";
+        }
+
+        .progress-bar-round-3:after {
+            content: "提交订单";
+        }
+
+        .progress-bar-round-1:after,
+        .progress-bar-round-2:after,
+        .progress-bar-round-3:after {
+            display: block;
+            position: absolute;
+            top: 35px;
+            left: -8px;
+            right: -25px;
+            color: #8c8c8c;
+        }
+
+        .progress-bar-rectangle {
+            position: relative;
+            top: 13px;
+            float: left;
+            width: 200px;
+            height: 5px;
+            /*background-color: #d9d9d9*/
+            background-color: #2abf5c
+        }
+
+        .progress-bar-content {
+            position: absolute;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="my-progress-bar">
+    <div class="progress-bar-wrap">
+        <div class="progress-bar-round-1">1</div>
+        <div class="progress-bar-rectangle"></div>
+        <div class="progress-bar-round-2">2</div>
+        <div class="progress-bar-rectangle"></div>
+        <div class="progress-bar-round-3">3</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单核对</title>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../resources/bootstrap/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="../resources/css/base.css">
+    <link rel="stylesheet" href="../resources/css/icon_style.css">
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/js/idangerous.swiper.min.js"></script>
+    <script type="text/javascript"
+            src="../resources/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript"
+            src="../resources/bootstrap/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+</head>
+<style type="text/css">
+
+
+    .car-list {
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .myTable {
+        table-layout: fixed;
+    }
+
+    .myTable > thead > tr {
+        background-color: #f3f3f3;
+        border: 1px solid #dedede;
+    }
+
+    .myTable > thead > tr > th {
+        vertical-align: middle;
+        text-align: center;
+        border-bottom: 0px solid #dedede;
+    }
+
+    .myTable > tbody > tr {
+        vertical-align: middle;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .myTable > tbody > tr > td {
+        border-width: 0px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .myTable > thead > tr > th input[type=checkbox],
+    .myTable > tbody > tr > td input[type=checkbox] {
+        position: relative;
+        top: 2px;
+        margin: 0px 5px 0 20px;
+    }
+
+    .car-list-bottom {
+        position: relative;
+        padding: 0px 20px;
+        height: 60px;
+        background-color: #f7f7f7;
+        color: #7f7f7f;
+    }
+
+    .car-list-bottom span {
+        position: relative;
+        top: 35%;
+        padding-top: 20px;
+    }
+
+    .car-list-bottom .car-list-total {
+        float: right;
+        position: relative;
+        top: 25%;
+    }
+
+    .receiver-info {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .receiver-info .receiver-list {
+        overflow: hidden;
+        height: 40px;
+    }
+
+    .receiver-info .receiver-item {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        height: 40px;
+    }
+
+    .receiver-item:hover {
+        background-color: #eff7ff;
+    }
+
+    .receiver-item:hover .receiver-item-link {
+        display: block;
+    }
+
+    .receiver-item:hover .receiver-name {
+        background-color: #fff;
+    }
+
+    .receiver-info .receiver-item span {
+        margin-right: 10px;
+        line-height: 40px;
+    }
+
+    .receiver-name {
+        position: relative;
+        float: left;
+        margin-right: 30px;
+        width: 150px;
+        height: 40px;
+        border: 1px solid #dedede;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    .receiver-name .icon-lower-right-corner {
+        position: absolute;
+        right: -10px;
+        bottom: 0px;
+    }
+
+    .receiver-name-checked {
+        border: 2px solid #1865b3;
+    }
+
+    .receiver-item .gray-btn {
+        color: #fff;
+        background-color: #a9a9a9;
+    }
+
+    .receiver-item-link {
+        display: none;
+        float: right;
+    }
+
+    .receiver-item-link a {
+        color: #1865b3;
+    }
+
+    .receiver-item-collapse {
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    .delivery-info {
+        margin-bottom: 20px;
+        padding: 20px;
+        height: 120px;
+        background-color: #fff;
+    }
+
+    .delivery-info .h4-title {
+        float: left;
+        margin-right: 50px;
+    }
+
+    .delivery-working-day {
+        float: left;
+        position: relative;
+        margin-top: 20px;
+        margin-right: 30px;
+        width: 150px;
+        height: 40px;
+        border: 1px solid #dedede;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    .delivery-checked {
+        border: 2px solid #ec0e0e;
+    }
+
+    .delivery-checked-triangle {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 0;
+        width: 0;
+        border-top: 10px solid #ec0e0e;
+        border-left: 10px solid transparent;
+    }
+
+    .myTable .date {
+        width: 130px;
+        border-radius: 0;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    }
+</style>
+<body>
+<div id="page_head"></div>
+<div class="page-content-bg">
+    <div class="page-content">
+
+        <ol class="breadcrumb">
+            <li><a href="home.html">首页</a></li>
+            <li class="active">我的购物车</li>
+        </ol>
+
+        <div id="progress-bar"></div>
+
+        <div class="receiver-info">
+            <h4 class="h4-title">收货人信息</h4>
+            <div class="receiver-list">
+                <div class="receiver-item">
+                    <div class="receiver-name receiver-name-checked">
+                        高坤
+                        <span class="icon-lower-right-corner"></span>
+                    </div>
+                    <span>高坤</span>
+                    <span>信息中心</span>
+                    <span>北大国际医院科研楼302室</span>
+                    <span>186****2323</span>
+                    <a href="#" class="btn btn-default btn-xs disabled gray-btn" role="button">默认地址</a>
+                    <div class="receiver-item-link">
+                        <span><a href="#">设为默认地址</a></span>
+                        <span><a href="#">编辑</a></span>
+                        <span><a href="#">删除</a></span>
+                    </div>
+                </div>
+
+                <div class="receiver-item">
+                    <div class="receiver-name">高坤</div>
+                    <span>高坤</span>
+                    <span>信息中心</span>
+                    <span>北大国际医院科研楼302室</span>
+                    <span>186****2323</span>
+                    <a href="#" class="btn btn-default btn-xs disabled gray-btn" role="button">默认地址</a>
+                    <div class="receiver-item-link">
+                        <span><a href="#">设为默认地址</a></span>
+                        <span><a href="#">编辑</a></span>
+                        <span><a href="#">删除</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="receiver-item-collapse">
+                <a href="javascript:;" onclick="expandOrCollapse(this,'receiver-list');">更多地址</a>
+                <span class="icon-collapse"></span>
+            </div>
+        </div>
+
+        <div class="delivery-info">
+            <h4 class="h4-title">配送信息</h4>
+            <div>
+                <div class="delivery-working-day delivery-checked">
+                    仅工作日配送
+                    <div class="delivery-checked-triangle"></div>
+                </div>
+                <textarea class="form-control" placeholder="备注：（配送信息）"
+                          style="width: 600px;height: 80px;font-size: 12px;"></textarea>
+            </div>
+
+        </div>
+
+        <div class="car-list">
+            <h4 class="h4-title">购物车</h4>
+            <table class="table myTable">
+                <thead>
+                <tr>
+                    <th style="width: 35%">商品信息</th>
+                    <th>包装规格</th>
+                    <th>数量</th>
+                    <th>单价</th>
+                    <th>小计</th>
+                    <th>需要时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align: left;">
+                        <img style="float: left;" src="../resources/images/carousel/s1.png" alt="">
+                        <p style="float: left; width: 225px; padding-top: 15px;">
+                            3860000<br/> 睿德（Riester）听诊器专业医用级双面听头 听诊器家用德国进口 （心脏专科版）
+                        </p>
+                    </td>
+                    <td>一件/盒</td>
+                    <td style="font-size: 14px;font-weight: bold">￥1688</td>
+                    <td>
+                        ×1
+                    </td>
+                    <td style="font-size: 14px;font-weight: bold">￥1688</td>
+                    <td>
+                        <input type="text" class="form-control date" placeholder="请选择时间" readonly="true">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="car-list-bottom">
+                <span>送货至：</span>
+                <span style="margin-right: 15px">北京市 朝阳区 北大国际医院科研楼302室</span>
+                <span>收货人：</span>
+                <span>高坤 186****2323</span>
+                <div class="car-list-total">
+                    <span style="margin-right: 0px;color: #848484;">应付金额：</span>
+                    <span style=" font-size: 18px; font-weight: bold; color: #e80000;">￥5066</span>
+                    <button class="btn btn-primary" style="margin-left: 10px" onclick="javascript:window.location.href='submit_order.html'">
+                        提交订单
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="page_foot"></div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#page_head").load("layout/page_head.html");
+        $("#progress-bar").load("shared/progress_bar.html");
+        $("#page_foot").load("layout/page_foot.html");
+
+        $('.date').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            language: "zh-CN",
+            todayHighlight: true,
+            clearBtn: true //清除按钮
+        });
+
+    });
+
+    function expandOrCollapse($this, id) {
+        if ($($this).html() == "更多地址") {
+            $($this).html("收起地址");
+            $('.' + id).css("height", "auto")
+        } else {
+            $($this).html("更多地址");
+            $('.' + id).css("height", "40px")
+        }
+    }
+</script>
+</html>

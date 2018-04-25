@@ -13,89 +13,13 @@
 </head>
 <style type="text/css">
 
-    .my-progress-bar {
-        margin-bottom: 20px;
-        height: 120px;
-        border-top: 3px solid #1865b3;
-        background-color: #fff;
-    }
-
-    .progress-bar-wrap {
-        /*overflow: hidden;*/
-        position: relative;
-        margin: 30px auto;
-        width: 520px;
-        height: 50px;
-    }
-
-    .progress-bar-round-1,
-    .progress-bar-round-2,
-    .progress-bar-round-3 {
-        position: relative;
-        float: left;
-        width: 30px;
-        height: 30px;
-        display: -webkit-box;
-        -webkit-box-pack: center;
-        -webkit-box-align: center;
-        border-radius: 80%;
-        box-shadow: 0 0 0 6px #2abf5c inset;
-        color: #2abf5c;
-    }
-
-    .progress-bar-round-1:after {
-        content: "我的购物车";
-    }
-
-    .progress-bar-round-2:after {
-        content: "核对订单";
-    }
-
-    .progress-bar-round-3:after {
-        content: "提交订单";
-    }
-
-    .progress-bar-round-1:after,
-    .progress-bar-round-2:after,
-    .progress-bar-round-3:after {
-        display: block;
-        position: absolute;
-        top: 35px;
-        left: -8px;
-        right: -25px;
-        color: #8c8c8c;
-    }
-
-    .progress-bar-rectangle {
-        position: relative;
-        top: 13px;
-        float: left;
-        width: 200px;
-        height: 5px;
-        /*background-color: #d9d9d9*/
-        background-color: #2abf5c
-    }
-
-    .progress-bar-content {
-        position: absolute;
-        top: 20px;
-    }
-
-    /*-----------------------------------*/
 
     .car-list {
         padding: 20px;
         background-color: #fff;
     }
 
-    .car-list-title {
-        display: inline-block;
-        color: #272727;
-        font-weight: bold;
-    }
-
     .myTable {
-        margin-top: 20px;
         table-layout: fixed;
     }
 
@@ -153,18 +77,16 @@
 <div id="page_head"></div>
 <div class="page-content-bg">
     <div class="page-content">
-        <div class="my-progress-bar">
-            <div class="progress-bar-wrap">
-                <div class="progress-bar-round-1">1</div>
-                <div class="progress-bar-rectangle"></div>
-                <div class="progress-bar-round-2">2</div>
-                <div class="progress-bar-rectangle"></div>
-                <div class="progress-bar-round-3">3</div>
-            </div>
-        </div>
+
+        <ol class="breadcrumb">
+            <li><a href="home.html">首页</a></li>
+            <li class="active">我的购物车</li>
+        </ol>
+
+        <div id="progress-bar"></div>
 
         <div class="car-list">
-            <h4 class="car-list-title">购物车</h4>
+            <h4 class="h4-title">购物车</h4>
             <div class="input-group search-conform" style="float: right; width: 20%;">
                 <input type="text" class="form-control" id="search" placeholder="在结果中搜索" style="width: 280px;">
                 <span class="input-group-btn">
@@ -290,7 +212,7 @@
                 <div class="car-list-total">
                     <span style="margin-right: 0px;color: #848484;">总金额：</span>
                     <span style=" font-size: 18px; font-weight: bold; color: #e80000;">￥5066</span>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" onclick="javascript:window.location.href='order_check.html'">
                         下一步
                     </button>
                 </div>
@@ -299,12 +221,12 @@
     </div>
 </div>
 
-
 <div id="page_foot"></div>
 </body>
 <script type="text/javascript">
     $(function () {
         $("#page_head").load("layout/page_head.html");
+        $("#progress-bar").load("shared/progress_bar.html");
         $("#page_foot").load("layout/page_foot.html");
     });
 </script>
