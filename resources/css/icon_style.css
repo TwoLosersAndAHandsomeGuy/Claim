@@ -34,3 +34,39 @@
     height: 36px;
     background: url(../images/prompt/sucess.png);
 }
+.icon-personal-address {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/decoration/address.png);
+}
+.icon-personal-shop-car {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/decoration/shop-car.png);
+}
+.icon-personal-collection {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/decoration/collection.png);
+}
+.icon-personal-department-bag {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/decoration/department-bag.png);
+}

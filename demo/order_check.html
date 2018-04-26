@@ -25,34 +25,12 @@
         background-color: #fff;
     }
 
-    .myTable {
+    .simple-table {
         table-layout: fixed;
     }
 
-    .myTable > thead > tr {
-        background-color: #f3f3f3;
-        border: 1px solid #dedede;
-    }
-
-    .myTable > thead > tr > th {
-        vertical-align: middle;
-        text-align: center;
-        border-bottom: 0px solid #dedede;
-    }
-
-    .myTable > tbody > tr {
-        vertical-align: middle;
-        border-bottom: 1px dashed #dedede;
-    }
-
-    .myTable > tbody > tr > td {
-        border-width: 0px;
-        vertical-align: middle;
-        text-align: center;
-    }
-
-    .myTable > thead > tr > th input[type=checkbox],
-    .myTable > tbody > tr > td input[type=checkbox] {
+    .simple-table > thead > tr > th input[type=checkbox],
+    .simple-table > tbody > tr > td input[type=checkbox] {
         position: relative;
         top: 2px;
         margin: 0px 5px 0 20px;
@@ -190,7 +168,7 @@
         border-left: 10px solid transparent;
     }
 
-    .myTable .date {
+    .simple-table .date {
         width: 130px;
         border-radius: 0;
         text-align: center;
@@ -267,7 +245,7 @@
 
         <div class="car-list">
             <h4 class="h4-title">购物车</h4>
-            <table class="table myTable">
+            <table class="table simple-table">
                 <thead>
                 <tr>
                     <th style="width: 35%">商品信息</th>

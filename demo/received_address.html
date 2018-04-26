@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收货地址</title>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/base.css">
+    <link rel="stylesheet" href="../resources/css/icon_style.css">
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+    .breadcrumb {
+        background-color: #fff;
+    }
+
+    .vertical-nav {
+        float: left;
+        padding-top: 30px;
+        margin-right: 20px;
+        margin-bottom: 80px;
+        height: 600px;
+        width: 200px;
+        border: 1px solid #dcdcdc;
+    }
+
+    .vertical-nav dl {
+        margin-bottom: 0px;
+    }
+
+    .vertical-nav dt {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        border-left: 3px solid transparent;
+        font-size: 16px;
+        font-weight: bold;
+        color: #373737;
+    }
+
+    .vertical-nav dd {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 45px;
+        border-left: 3px solid transparent;
+        font-size: 14px;
+        color: #686868;
+    }
+
+    .vertical-nav .enabled-click:hover {
+        background-color: #eff7ff;
+        border-left: 3px solid #1865b3;
+    }
+
+    .vertical-nav a:hover,
+    .vertical-nav a:focus {
+        text-decoration: none;
+    }
+
+    .address-list {
+        float: left;
+        width: 870px;
+        /*border-top: 1px solid #dedede;*/
+        height: 500px;
+    }
+
+    .h4-title {
+        padding-bottom: 10px;
+        display: block;
+        color: #1865b3;
+        border-bottom: 2px solid #dedede;
+    }
+
+    .simple-table-link p {
+        margin-bottom: 5px;
+    }
+
+    .simple-table-link p a {
+        color: #5a9bdd;
+    }
+
+    .modal-body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        /*font-size: 14px;*/
+    }
+
+    .modal-body label {
+        font-size: 14px;
+        font-weight: normal;
+        color: #818181;
+    }
+
+    .row-input {
+        margin-bottom: 20px;
+    }
+</style>
+<body>
+<div id="page_head"></div>
+<div class="page-content">
+
+    <ol class="breadcrumb">
+        <li><a href="home.html">首页</a></li>
+        <li class="active">我的购物车</li>
+    </ol>
+
+    <div class="vertical-nav">
+        <dl>
+            <dt>
+                <span class="icon-personal-department-bag"></span>订单查询
+            </dt>
+            <a href="#">
+                <dd class="enabled-click vertical-nav-active">我的订单</dd>
+            </a>
+            <a href="#">
+                <dd class="enabled-click">我的评价</dd>
+            </a>
+            <a href="#">
+                <dd class="enabled-click">退货记录</dd>
+            </a>
+        </dl>
+        <dl>
+            <a href="#">
+                <dt class="enabled-click">
+                    <span class="icon-personal-shop-car"></span>医院专用包
+                </dt>
+            </a>
+        </dl>
+        <dl>
+            <a href="#">
+                <dt class="enabled-click"><span class="icon-personal-department-bag"></span>科室专用包</dt>
+            </a>
+        </dl>
+        <dl>
+            <a href="#">
+                <dt class="enabled-click"><span class="icon-personal-collection"></span>我的收藏</dt>
+            </a>
+        </dl>
+        <dl>
+            <a href="#">
+                <dt class="enabled-click">
+                    <span class="icon-personal-address"></span>收货地址
+                </dt>
+            </a>
+        </dl>
+    </div>
+
+    <div class="address-list">
+        <h4 class="h4-title">收货地址</h4>
+        <div style="text-align: right;padding-bottom: 15px;">
+            <span class="glyphicon glyphicon-plus" style="color: #1865b3;"></span>
+            <a href="#" data-toggle="modal" data-target="#addAddress">新增收货地址</a>
+        </div>
+        <table class="table simple-table">
+            <thead>
+            <tr>
+                <th>收货人</th>
+                <th>申领科室</th>
+                <th>收货地址</th>
+                <th>联系信息</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>高坤</td>
+                <td>信息中心</td>
+                <td>北大国际医院 科研楼</td>
+                <td>18636368989</td>
+                <td class="simple-table-link">
+                    <P><a href="#">设为默认</a></P>
+                    <p><a href="#">编辑</a></p>
+                    <p><a href="#" style="color: #3e3e3e">删除</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>高坤</td>
+                <td>信息中心</td>
+                <td>北大国际医院 科研楼</td>
+                <td>18636368989</td>
+                <td class="simple-table-link">
+                    <P><a href="#">设为默认</a></P>
+                    <p><a href="#">编辑</a></p>
+                    <p><a href="#" style="color: #3e3e3e">删除</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>高坤</td>
+                <td>信息中心</td>
+                <td>北大国际医院 科研楼</td>
+                <td>18636368989</td>
+                <td class="simple-table-link">
+                    <P><a href="#">设为默认</a></P>
+                    <p><a href="#">编辑</a></p>
+                    <p><a href="#" style="color: #3e3e3e">删除</a></p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal fade" id="addAddress" tabindex="-1" role="dialog" aria-labelledby="addAddressLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="addAddressLabel">
+                    新建收货地址
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        <label for="input2" class="col-sm-2 col-xs-2 control-label">
+                            <apan style="color:red">*</apan>
+                            地址
+                        </label>
+                        <select class="form-control col-sm-8 col-xs-8"
+                                style="border-radius: 0px;width: 62%;margin-left: 15px;">
+                            <option value="" disabled selected hidden>请选择</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                        <label for="input2" class="col-sm-2 col-xs-2 control-label" style="width:10%;">楼</label>
+                    </div>
+                    <div class="form-group" style="margin-left: 85px;">
+                        <select class="form-control col-sm-8 col-xs-8"
+                                style="border-radius: 0px;width: 31%;margin-left: 15px;">
+                            <option value="" disabled selected hidden>请选择</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                        <label for="input2" class="col-sm-1 control-label">层</label>
+                        <select class="form-control col-sm-8 col-xs-8"
+                                style="border-radius: 0px;width: 32%;margin-left: 15px;">
+                            <option value="" disabled selected hidden>请选择</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                        <label for="input2" class="col-sm-2 col-xs-2 control-label" style="width:12%;">房间</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="input1" class="col-sm-2 col-xs-2 control-label">
+                            <apan style="color:red">*</apan>
+                            收货人
+                        </label>
+                        <div class="col-sm-8 col-xs-8">
+                            <input type="text" class="form-control input-straight" id="input1" placeholder="请输入">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input2" class="col-sm-2 col-xs-2 control-label">
+                            <apan style="color:red">*</apan>
+                            手机号码
+                        </label>
+                        <div class="col-sm-8 col-xs-8">
+                            <input type="text" class="form-control input-straight" id="input2" placeholder="请输入">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input2" class="col-sm-2 col-xs-2 control-label">
+                            <apan style="color:red">*</apan>
+                            所属科室
+                        </label>
+                        <select class="form-control col-sm-8 col-xs-8"
+                                style="border-radius: 0px;border-radius: 0px;width: 62%;margin-left: 15px;">
+                            <option value="" disabled selected hidden>请选择</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer-center">
+                <button type="button" class="btn btn-primary normal-button">
+                    确认
+                </button>
+                <button type="button" class="btn btn-primary normal-button cancel-button" data-dismiss="modal"
+                        aria-hidden="true">
+                    取消
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div id="page_foot"></div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#page_head").load("layout/page_head.html");
+        $("#progress-bar").load("shared/progress_bar.html");
+        $("#page_foot").load("layout/page_foot.html");
+
+    });
+</script>
+</html>

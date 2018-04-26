@@ -26,7 +26,7 @@ body {
     overflow: hidden;
 }
 
-/*面包屑导航*/
+/*--面包屑导航--*/
 .breadcrumb {
     margin: 0px;
     padding: 20px 15px;
@@ -37,7 +37,11 @@ body {
     content: "> ";
 }
 
-/*modal*/
+/*--modal--*/
+.modal-dialog {
+    margin-top: 10%;
+}
+
 .modal-content {
     border-radius: 0px;
 }
@@ -62,7 +66,45 @@ body {
     background-color: #1865b3;
 }
 
+.modal-footer-center .normal-button {
+    margin-right: 10px;
+    height: 40px;
+    width: 120px;
+    background-color: #1865b3;
+    border-color: #1865b3;
+}
+
+.modal-footer-center .cancel-button {
+    background-color: #c1c1c1;
+    border-color: #c1c1c1;
+}
+
+/*--table--*/
+.simple-table > thead > tr {
+    background-color: #f3f3f3;
+    border: 1px solid #dedede;
+}
+
+.simple-table > thead > tr > th {
+    vertical-align: middle;
+    text-align: center;
+    border-bottom-width: 0px;
+}
+
+.simple-table > tbody > tr {
+    vertical-align: middle;
+    border-bottom: 1px dashed #dedede;
+}
+
+.simple-table > tbody > tr > td {
+    vertical-align: middle;
+    text-align: center;
+    border-width: 0px;
+}
+
+/**/
 .input-straight {
+    height: 40px;
     border-radius: 0px;
     border-color: #e5e5e5;
 }
@@ -73,3 +115,10 @@ body {
     color: #272727;
     font-weight: bold;
 }
+
+.radius-ie8{
+    behavior: url(../resources/js/PIE.htc);
+}
+
+
+
