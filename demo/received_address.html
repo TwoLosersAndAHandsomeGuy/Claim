@@ -14,48 +14,7 @@
         background-color: #fff;
     }
 
-    .vertical-nav {
-        float: left;
-        padding-top: 30px;
-        margin-right: 20px;
-        margin-bottom: 80px;
-        height: 600px;
-        width: 200px;
-        border: 1px solid #dcdcdc;
-    }
-
-    .vertical-nav dl {
-        margin-bottom: 0px;
-    }
-
-    .vertical-nav dt {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 20px;
-        border-left: 3px solid transparent;
-        font-size: 16px;
-        font-weight: bold;
-        color: #373737;
-    }
-
-    .vertical-nav dd {
-        padding-top: 7px;
-        padding-bottom: 7px;
-        padding-left: 45px;
-        border-left: 3px solid transparent;
-        font-size: 14px;
-        color: #686868;
-    }
-
-    .vertical-nav .enabled-click:hover {
-        background-color: #eff7ff;
-        border-left: 3px solid #1865b3;
-    }
-
-    .vertical-nav a:hover,
-    .vertical-nav a:focus {
-        text-decoration: none;
-    }
+    
 
     .address-list {
         float: left;
@@ -96,54 +55,15 @@
     }
 </style>
 <body>
-<div id="page_head"></div>
+<div id="page-head"></div>
 <div class="page-content">
-
+    
     <ol class="breadcrumb">
         <li><a href="home.html">首页</a></li>
         <li class="active">我的购物车</li>
     </ol>
 
-    <div class="vertical-nav">
-        <dl>
-            <dt>
-                <span class="icon-personal-department-bag"></span>订单查询
-            </dt>
-            <a href="#">
-                <dd class="enabled-click vertical-nav-active">我的订单</dd>
-            </a>
-            <a href="#">
-                <dd class="enabled-click">我的评价</dd>
-            </a>
-            <a href="#">
-                <dd class="enabled-click">退货记录</dd>
-            </a>
-        </dl>
-        <dl>
-            <a href="#">
-                <dt class="enabled-click">
-                    <span class="icon-personal-shop-car"></span>医院专用包
-                </dt>
-            </a>
-        </dl>
-        <dl>
-            <a href="#">
-                <dt class="enabled-click"><span class="icon-personal-department-bag"></span>科室专用包</dt>
-            </a>
-        </dl>
-        <dl>
-            <a href="#">
-                <dt class="enabled-click"><span class="icon-personal-collection"></span>我的收藏</dt>
-            </a>
-        </dl>
-        <dl>
-            <a href="#">
-                <dt class="enabled-click">
-                    <span class="icon-personal-address"></span>收货地址
-                </dt>
-            </a>
-        </dl>
-    </div>
+    <div id="vertical-nav"></div>
 
     <div class="address-list">
         <h4 class="h4-title">收货地址</h4>
@@ -288,13 +208,13 @@
     </div><!-- /.modal -->
 </div>
 
-<div id="page_foot"></div>
+<div id="page-foot"></div>
 </body>
 <script type="text/javascript">
     $(function () {
-        $("#page_head").load("layout/page_head.html");
-        $("#progress-bar").load("shared/progress_bar.html");
-        $("#page_foot").load("layout/page_foot.html");
+        $("#page-head").load("layout/page_head.html");
+        $("#vertical-nav").load("shared/vertical_nav.html");
+        $("#page-foot").load("layout/page_foot.html");
 
     });
 </script>

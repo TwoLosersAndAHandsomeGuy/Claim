@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/base.css">
+    <link rel="stylesheet" href="../resources/css/icon_style.css">
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+    .breadcrumb {
+        background-color: #fff;
+    }
+
+    .address-list {
+        float: left;
+        width: 870px;
+        /*border-top: 1px solid #dedede;*/
+        height: 500px;
+    }
+
+    .list-inline-title {
+        float: left;
+        overflow: hidden;
+    }
+
+    .list-inline-title > li {
+        float: left;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: 2px solid #dedede;
+    }
+
+    .list-inline-title > li span {
+        padding-left: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #e20000;
+    }
+
+    .list-inline-title > li a:hover {
+        text-decoration: none;
+    }
+
+    .list-inline-title > li > a:hover .h4-title {
+        color: #1865b3;
+    }
+
+    .list-inline-title .list-active {
+        border-bottom: 2px solid #1865b3;
+    }
+
+    .list-inline-title .list-active .h4-title {
+        color: #1865b3;
+    }
+
+    .search-conform {
+        width: 250px;
+        float: right;
+        padding-top: 11px;
+    }
+
+    .search-conform button, .search-conform input {
+        border-radius: 0px;
+        border-color: #e5e5e5;
+        height: 35px;
+    }
+
+    .simple-table-link p {
+        margin-bottom: 5px;
+    }
+
+    .simple-table-link p a {
+        color: #5a9bdd;
+    }
+
+    .order-title-row {
+        height: 50px;
+        border: 1px solid #c5e2ff;
+        background-color: #eff7ff;
+    }
+
+    .order-title {
+        padding-right: 15px;
+        line-height: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #1865b3;
+    }
+
+    .order-explanation {
+        line-height: 50px;
+        color: #858585;
+    }
+
+    .order-second-title > span {
+        padding-left: 20px;
+        padding-right: 20px;
+        color: #8f8e8e;
+    }
+
+    .order-second-title .order-second-title-val {
+        color: #282828;
+    }
+
+    .simple-table > tbody > tr {
+        border: 1px solid #dedede;
+    }
+
+
+</style>
+<body>
+<div id="page-head"></div>
+<div class="page-content">
+
+    <ol class="breadcrumb">
+        <li><a href="home.html">首页</a></li>
+        <li class="active">我的购物车</li>
+    </ol>
+
+    <div id="vertical-nav"></div>
+
+    <div class="address-list">
+        <ul class="list-inline list-inline-title">
+            <li class="list-active"><a href="#"><h4 class="h4-title">全部订单</h4></a></li>
+            <li><a href="#"><h4 class="h4-title">待核对</h4><span>2</span></a></li>
+            <li><a href="#"><h4 class="h4-title">审批中</h4><span>3</span></a></li>
+            <li><a href="#"><h4 class="h4-title">待收货</h4><span>4</span></a></li>
+            <li><a href="#"><h4 class="h4-title">待评价</h4><span>5</span></a></li>
+        </ul>
+        <div class="input-group search-conform">
+            <input type="text" class="form-control" id="search" placeholder="在结果中搜索" style="width: 240px;">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" style="width:35px;">
+                    <a href="#"><span class="glyphicon glyphicon-search"
+                                      style="top: 3px;right: 3px;color: #337ab7;"></span></a>
+                </button>
+            </span>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <table class="table simple-table">
+            <thead>
+            <tr>
+                <th style="width: 100px">申领时间</th>
+                <th style="width: 250px">商品</th>
+                <th>申领单位</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>收货人</th>
+                <th style="position: relative">订单状态
+                    <!--<div style="position: absolute;background-color: #fff">-->
+                        <!--<ul class="list-unstyled">-->
+                            <!--<li>全部状态</li>-->
+                            <!--<li>等待付款</li>-->
+                            <!--<li>等待收货</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                </th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="9" style="padding: 8px 0px 0px 0px;">
+                    <div class="order-title-row">
+                        <span class="order-title">低值类耗材申购 </span>
+                        <span class="order-explanation">尊敬的客户，由于您的商品在不同库房或属于不同申购分类，所以您的订单被拆分为多个子订单分开配送，给您带来的不便敬请谅解。</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="9" class="order-second-title" style="background-color: #f3f3f3;text-align: left">
+                    <span class="">2018-04-27 11:13:00</span>
+                    <span>
+                        申领单号：
+                        <span class="order-second-title-val">BG72701308703</span>
+                    </span>
+                    <span>
+                        订单编号：
+                        <span class="order-second-title-val">WPSG72701308703</span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left;">
+                    <img style="float: left; border: 1px solid #ddd;margin-right: 5px;"
+                         src="../resources/images/carousel/s1.png" alt="">
+                    <p style="float: left; width: 225px; padding-top: 15px;line-height: 20px;">
+                        3860000<br/> 睿德（Riester）听诊器专业医用级双面听头 听诊器家用德国进口 （心脏专科版）
+                    </p>
+                </td>
+                <td>一件/盒</td>
+                <td style="font-size: 14px;font-weight: bold">￥1688</td>
+                <td style="color:#8a8a8a;">12</td>
+                <td style="font-size: 14px;font-weight: bold">￥1688</td>
+                <td style="color:#8a8a8a;">高坤</td>
+                <td style="color:#e20000;">审批中</td>
+                <td class="simple-table-link">
+                    <P><a href="#">订单详情</a></P>
+                    <p><a href="#">取消订单</a></p>
+                    <p>
+                        <button class="btn btn-xs">再次购买</button>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:10px;"></tr>
+            <tr>
+                <td colspan="9" class="order-second-title" style="background-color: #f3f3f3;text-align: left">
+                    <span class="">2018-04-27 11:13:00</span>
+                    <span>
+                        申领单号：
+                        <span class="order-second-title-val">BG72701308703</span>
+                    </span>
+                    <span>
+                        订单编号：
+                        <span class="order-second-title-val">WPSG72701308703</span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left;">
+                    <img style="float: left; border: 1px solid #ddd;margin-right: 5px;"
+                         src="../resources/images/carousel/s1.png" alt="">
+                    <p style="float: left; width: 225px; padding-top: 15px;line-height: 20px;">
+                        3860000<br/> 睿德（Riester）听诊器专业医用级双面听头 听诊器家用德国进口 （心脏专科版）
+                    </p>
+                </td>
+                <td>一件/盒</td>
+                <td style="font-size: 14px;font-weight: bold">￥1688</td>
+                <td style="color:#8a8a8a;">12</td>
+                <td style="font-size: 14px;font-weight: bold">￥1688</td>
+                <td style="color:#8a8a8a;">高坤</td>
+                <td style="color:#e20000;">审批中</td>
+                <td class="simple-table-link">
+                    <P><a href="#">订单详情</a></P>
+                    <p><a href="#">取消订单</a></p>
+                    <p>
+                        <button class="btn btn-xs">再次购买</button>
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="page-turn">
+            <p>
+                <button type="button" class="btn btn-default btn-xs  disabled">上一页</button>
+                <span><span>1/30</span></span>
+                <button type="button" class="btn btn-primary btn-xs">下一页</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="page-foot"></div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#page-head").load("layout/page_head.html");
+        $("#vertical-nav").load("shared/vertical_nav.html");
+        $("#page-foot").load("layout/page_foot.html");
+
+    });
+</script>
+</html>

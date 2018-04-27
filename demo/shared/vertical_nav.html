@@ -1,0 +1,115 @@
+<style type="text/css">
+    .vertical-nav {
+        float: left;
+        padding-top: 30px;
+        margin-right: 20px;
+        margin-bottom: 80px;
+        height: 600px;
+        width: 200px;
+        border: 1px solid #dcdcdc;
+    }
+
+    .vertical-nav dl {
+        margin-bottom: 0px;
+    }
+
+    .vertical-nav dt {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        border-left: 3px solid transparent;
+        font-size: 16px;
+        font-weight: bold;
+        color: #373737;
+    }
+
+    .vertical-nav dd {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 45px;
+        border-left: 3px solid transparent;
+        font-size: 14px;
+        color: #686868;
+    }
+
+    .vertical-nav .vertical-nav-active {
+        background-color: #eff7ff;
+        border-left: 3px solid #1865b3;
+        color: #1865b3;
+    }
+
+    .vertical-nav .enabled-click:hover {
+        background-color: #eff7ff;
+        color: #1865b3;
+    }
+
+    .vertical-nav a:hover,
+    .vertical-nav a:focus {
+        text-decoration: none;
+        color: #1865b3;
+        background-color: #eff7ff;
+    }
+</style>
+
+<div class="vertical-nav">
+    <dl>
+        <dt>
+            <span class="icon-personal-department-bag"></span>订单查询
+        </dt>
+        <a href="my_order.html">
+            <dd class="enabled-click">我的订单</dd>
+        </a>
+        <a href="#">
+            <dd class="enabled-click">我的评价</dd>
+        </a>
+        <a href="#">
+            <dd class="enabled-click">退货记录</dd>
+        </a>
+    </dl>
+    <dl>
+        <a href="#">
+            <dt class="enabled-click">
+                <span class="icon-personal-shop-car"></span>医院专用包
+            </dt>
+        </a>
+    </dl>
+    <dl>
+        <a href="#">
+            <dt class="enabled-click"><span class="icon-personal-department-bag"></span>科室专用包</dt>
+        </a>
+    </dl>
+    <dl>
+        <a href="#">
+            <dt class="enabled-click"><span class="icon-personal-collection"></span>我的收藏</dt>
+        </a>
+    </dl>
+    <dl>
+        <a href="received_address.html">
+            <dt class="enabled-click">
+                <span class="icon-personal-address"></span>收货地址
+            </dt>
+        </a>
+    </dl>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        switchNav();
+    });
+
+    function switchNav() {
+        var curr_location = location.href.toLocaleLowerCase();
+        $(".vertical-nav dl a").each(function () {
+
+            var curr_a = $(this).attr("href").toLocaleLowerCase();
+
+            if (curr_location.indexOf(curr_a) != -1 && curr_a != "" && curr_a != "#") {
+                $(this).children("dd").addClass("vertical-nav-active");
+                $(this).children("dt").addClass("vertical-nav-active");
+            } else {
+                $(this).parent("dd").removeClass("vertical-nav-active");
+                $(this).parent("dt").removeClass("vertical-nav-active");
+            }
+        });
+    }
+</script>
