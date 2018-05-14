@@ -27,13 +27,14 @@ body {
 }
 
 /*--面包屑导航--*/
-.breadcrumb {
+.breadcrumb-me {
     margin: 0px;
     padding: 20px 15px;
     height: 50px;
+    background-color: #fff;
 }
 
-.breadcrumb > li + li:before {
+.breadcrumb-me > li + li:before {
     content: "> ";
 }
 
