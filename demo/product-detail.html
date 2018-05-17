@@ -479,11 +479,17 @@
                     <option>5</option>
                 </select>
                 <div style="text-align: center;margin: 40px 0px 60px;">
-                    <span><a href="#" onclick="modifyTestBuyNum('numInBag','subtract')"><img
-                            src="../resources/images//button/round_sub.png"></a></span>
+                    <span>
+                        <a href="#" onclick="modifyValBuyNum('numInBag','subtract','span')">
+                            <img src="../resources/images//button/round_sub.png">
+                        </a>
+                    </span>
                     <span id="numInBag" style="padding: 5px;font-size: 14px;">1</span>
-                    <span><a href="#" onclick="modifyTestBuyNum('numInBag','add')"><img
-                            src="../resources/images//button/round_add.png"></a></span>
+                    <span>
+                        <a href="#" onclick="modifyValBuyNum('numInBag','add','span')">
+                        <img src="../resources/images//button/round_add.png">
+                        </a>
+                    </span>
                 </div>
             </div>
             <div class="modal-footer-center">
@@ -505,26 +511,26 @@
         $("#page_right").load("layout/page_right.html");
     });
 
-    function modifyValBuyNum(valueId, addOrSubtract) {
-        var originVal = $('#' + valueId).val();
+    function modifyValBuyNum(valueId, addOrSubtract, type) {
+        var originVal = 0;
+        if ("span" == type) {
+            originVal = $('#' + valueId).text();
+        }else{
+            originVal = $('#' + valueId).val();
+        }
         if (originVal == undefined || originVal == '' || parseInt(originVal) < 1) {
             originVal = 1;
         }
+        var num = 0;
         if (addOrSubtract == 'add') {
-            $('#' + valueId).val(parseInt(originVal) + 1);
+            num = 1;
         } else if (addOrSubtract == 'subtract') {
-            $('#' + valueId).val(parseInt(originVal) - 1);
+            num = -1
         }
-    }
-    function modifyTestBuyNum(valueId, addOrSubtract) {
-        var originVal = $('#' + valueId).text();
-        if (originVal == undefined || originVal == '' || parseInt(originVal) < 1) {
-            originVal = 1;
-        }
-        if (addOrSubtract == 'add') {
-            $('#' + valueId).text(parseInt(originVal) + 1);
-        } else if (addOrSubtract == 'subtract') {
-            $('#' + valueId).text(parseInt(originVal) - 1);
+        if ("span" == type) {
+            $('#' + valueId).text(parseInt(originVal) + num);
+        } else {
+            $('#' + valueId).val(parseInt(originVal) + num);
         }
     }
 
