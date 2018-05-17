@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "AutoID": "func_1",
+      "code": "qzb",
+      "name": "签字笔1",
+      "sldw": "盒",
+      "amount":10,
+      "num": 99,
+      "subtotal" : 80,
+      "remark":"哈哈哈"
+    },
+    {
+      "AutoID": "func_2",
+      "code": "qzb",
+      "name": "签字笔2",
+      "sldw": "盒",
+      "amount":10,
+      "num": 2,
+      "subtotal" : 20,
+      "remark":"哈哈哈"
+    },
+    {
+      "AutoID": "func_3",
+      "code": "qzb",
+      "name": "签字笔3",
+      "sldw": "盒",
+      "amount":10,
+      "num": 8,
+      "subtotal" : 80,
+      "remark":"哈哈哈"
+    },
+    {
+      "AutoID": "func_4",
+      "code": "qzb",
+      "name": "签字笔4",
+      "sldw": "盒",
+      "amount":10,
+      "num": 8,
+      "subtotal" : 80,
+      "remark":"哈哈哈"
+    },
+    {
+      "AutoID": "func_5",
+      "code": "qzb",
+      "name": "签字笔5",
+      "sldw": "盒",
+      "amount":10,
+      "num": 8,
+      "subtotal" : 80,
+      "remark":"哈哈哈"
+    },
+    {
+      "AutoID": "func_6",
+      "code": "qzb",
+      "name": "签字笔6",
+      "sldw": "盒",
+      "amount":10,
+      "num": 8,
+      "subtotal" : 80,
+      "remark":"哈哈哈"
+    }
+  ]
+}

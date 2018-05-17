@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../resources/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="../resources/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../resources/css/base.css">
+    <link rel="stylesheet" href="../resources/css/icon_style.css">
+    <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="../resources/js/idangerous.swiper.min.js"></script>
+</head>
+<style type="text/css">
+
+
+    .car-list {
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .simple-table {
+        table-layout: fixed;
+    }
+
+    .simple-table > thead > tr {
+        background-color: #f3f3f3;
+        border: 1px solid #dedede;
+    }
+
+    .simple-table > thead > tr > th {
+        vertical-align: middle;
+        text-align: center;
+        border-bottom: 0px solid #dedede;
+    }
+
+    .simple-table > tbody > tr {
+        vertical-align: middle;
+        border-bottom: 1px dashed #dedede;
+    }
+
+    .simple-table > tbody > tr > td {
+        border-width: 0px;
+        vertical-align: middle;
+    }
+
+    .simple-table > thead > tr > th input[type=checkbox],
+    .simple-table > tbody > tr > td input[type=checkbox] {
+        position: relative;
+        top: 2px;
+        margin: 0px 5px 0 20px;
+    }
+
+    .car-list-bottom {
+        position: relative;
+        padding: 0px 20px;
+        height: 60px;
+        background-color: #f7f7f7;
+    }
+
+    .car-list-bottom span {
+        position: relative;
+        top: 35%;
+        padding-top: 20px;
+        margin-right: 15px;
+
+    }
+
+    .car-list-bottom .car-list-total {
+        float: right;
+        position: relative;
+        top: 25%;
+    }
+
+</style>
+<body>
+<div id="page_head"></div>
+<div class="page-content-bg">
+    <div class="page-content">
+
+        <ol class="breadcrumb">
+            <li><a href="home.html">首页</a></li>
+            <li class="active">我的购物车</li>
+        </ol>
+
+        <div id="progress-bar"></div>
+
+        <div class="car-list">
+            <h4 class="h4-title">购物车</h4>
+            <div class="input-group search-conform" style="float: right; width: 20%;">
+                <input type="text" class="form-control" id="search" placeholder="在结果中搜索" style="width: 280px;">
+                <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><img
+                                src="../resources/images/button/search_blue.png"></button>
+                    </span>
+            </div>
+            <table id="shopCarTable" class="table simple-table"></table>
+            <div class="car-list-bottom">
+                <span>
+                    <label class="checkbox-inline">
+                        <input type="checkbox"> 全选
+                    </label>
+                </span>
+                <span><a href="#">删除选中的商品</a></span>
+                <span><a href="#">清空购物车</a></span>
+                <span><a href="#">移入收藏夹</a></span>
+                <span><a href="#">移入科室常用包</a></span>
+                <div class="car-list-total">
+                    <span style="margin-right: 0px;color: #848484;">总金额：</span>
+                    <span style=" font-size: 18px; font-weight: bold; color: #e80000;">￥5066</span>
+                    <button class="btn btn-primary" onclick="javascript:window.location.href='order_check.html'">
+                        下一步
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="page_foot"></div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#page_head").load("layout/page_head.html");
+        $("#progress-bar").load("shared/progress_bar.html");
+        $("#page_foot").load("layout/page_foot.html");
+        tableInit();
+    });
+
+    function tableInit() {
+        $('#shopCarTable').bootstrapTable({
+            url:"../demo/testData/shop.json",         //请求后台的URL（*）
+            method: 'post',                      //请求方式（*）
+            pagination: false,                   //是否显示分页（*）
+            sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+            striped: false,                      //是否显示行间隔色
+            clickToSelect: true,                //是否启用点击选中行
+            singleSelect: false,
+            uniqueId: "AutoID",
+            classes:"table-no-bordered",
+            queryParams: function (param) {
+                return param;
+            },
+            columns: [{
+                checkbox: true
+            }, {
+                field: 'AutoID',
+                visible: false
+            }, {
+                field: 'name',
+                title: '商品信息',
+                formatter: formatName,
+                width: '26%'
+            }, {
+                field: 'sldw',
+                title: '申领单位',
+                width: '5%'
+            }, {
+                field: 'amount',
+                title: '单价',
+                width: '6%'
+            }, {
+                field: 'num',
+                title: '数量',
+                formatter:formatNum,
+                width: '10%'
+            }, {
+                field: 'subtotal',
+                title: '小计',
+                width: '6%'
+            }, {
+                field: 'remark',
+                title: '备注',
+                formatter:formatRemark,
+                width: '15%'
+            }, {
+                field: 'cz',
+                title: '操作',
+                width: '7%'
+            }
+            ]
+        });
+    }
+
+    function formatName(value, row, index){
+        var html = "";
+        html += '<img style="float: left;" src="../resources/images/carousel/s1.png" alt="">';
+        html += '<p style=" padding-top: 15px;">';
+        html += row.code + '<br/> ' + row.name+ '</p>';
+        return html;
+    }
+
+
+    function formatNum(value, row, index){
+        var html = "";
+        html += "<div class=\"input-group\" style=\"width: 120px;\">";
+        html += "<span class=\"input-group-btn\">";
+        html += "<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'subtract');\">";
+        html += "-</button></span>";
+        html += "<input id=\"buyNum\" type=\"text\" class=\"form-control\" value=\""+row.num+"\" style=\"text-align: center;\">";
+        html += "<span class=\"input-group-btn\">";
+        html += "<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'add');\">+</button>";
+        html += "</span></div>";
+        return html;
+    }
+
+    function modifyValBuyNum(autoId, num ,type){
+        if(type == "subtract"){
+            num += -1;
+
+        }else {
+            num += 1;
+        }
+
+        var data = $('#shopCarTable').bootstrapTable("getRowByUniqueId",autoId);
+        data.num = num;
+        $('#shopCarTable').bootstrapTable("updateByUniqueId",{AutoID: autoId, row: data});
+    }
+
+    function formatRemark(value, row, index){
+        var html = "";
+        html += "<textarea class=\"form-control\" placeholder=\"备注：（申领用途及数量依据）\" onblur=\"remarkOnblur('" +row.AutoID+ "',value)\"";
+        html += "style=\"width: 200px;height: 90px;font-size: 12px;\">"+row.remark+"</textarea>";
+        return html;
+    }
+
+    function remarkOnblur(autoId,value){
+        var data = $('#shopCarTable').bootstrapTable("getRowByUniqueId",autoId);
+        data.remark = value;
+        $('#shopCarTable').bootstrapTable("updateByUniqueId",{AutoID: autoId, row: data})
+    }
+</script>
+</html>
