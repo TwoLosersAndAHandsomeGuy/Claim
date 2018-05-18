@@ -156,10 +156,12 @@
             }, {
                 field: 'sldw',
                 title: '申领单位',
+                formatter: formatSldw,
                 width: '5%'
             }, {
                 field: 'amount',
                 title: '单价',
+                formatter:formatBold,
                 width: '6%'
             }, {
                 field: 'num',
@@ -169,6 +171,7 @@
             }, {
                 field: 'subtotal',
                 title: '小计',
+                formatter:formatBold,
                 width: '6%'
             }, {
                 field: 'remark',
@@ -195,14 +198,22 @@
 
     function formatNum(value, row, index){
         var html = "";
-        html += "<div class=\"input-group\" style=\"width: 120px;\">";
-        html += "<span class=\"input-group-btn\">";
-        html += "<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'subtract');\">";
-        html += "-</button></span>";
-        html += "<input id=\"buyNum\" type=\"text\" class=\"form-control\" value=\""+row.num+"\" style=\"text-align: center;\">";
-        html += "<span class=\"input-group-btn\">";
-        html += "<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'add');\">+</button>";
-        html += "</span></div>";
+//        html += "<div class=\"input-group\" style=\"width: 120px;\">";
+//        html += "<span class=\"input-group-btn\">";
+//        html += "<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'subtract');\">";
+//        html += "-</button></span>";
+//        html += "<input id=\"buyNum\" type=\"text\" class=\"form-control\" value=\""+row.num+"\" style=\"text-align: center;\" disabled=\"disabled\">";
+//        html += "<span class=\"input-group-btn\">";
+//        html += "<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'add');\">+</button>";
+//        html += "</span></div>";
+
+
+
+        html+="<div class=\"btn-group\" style=\"width: 120px;\">";;
+        html+="<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'subtract');\">-</button>";
+        html+="<button class=\"btn btn-default\" type=\"button\" class='width:100px;'>" + row.num + "</button>";
+        html+="<button class=\"btn btn-default\" type=\"button\" onclick=\"modifyValBuyNum('"+row.AutoID+"',"+row.num+",'add');\">+</button>";
+        html+="</div>";
         return html;
     }
 
@@ -230,6 +241,18 @@
         var data = $('#shopCarTable').bootstrapTable("getRowByUniqueId",autoId);
         data.remark = value;
         $('#shopCarTable').bootstrapTable("updateByUniqueId",{AutoID: autoId, row: data})
+    }
+
+    function formatSldw(value, row, index){
+        var html = "";
+        html += "<span style=\"color: #888888;\">"+ value +"</span>";
+        return html;
+    }
+
+    function formatBold(value, row, index){
+        var html = "";
+        html += "<span style=\"font-size: 14px;font-weight: bold\">"+ value +"</span>";
+        return html;
     }
 </script>
 </html>

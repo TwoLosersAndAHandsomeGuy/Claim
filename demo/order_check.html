@@ -175,7 +175,6 @@
         background-color: #fff;
     }
 
-    }
 </style>
 <body>
 <div id="page_head"></div>
@@ -192,7 +191,7 @@
         <div class="receiver-info">
             <h4 class="h4-title">收货人信息</h4>
             <div class="receiver-list">
-                <div class="receiver-item">
+                <div class="receiver-item" onclick="alert(1);">
                     <div class="receiver-name receiver-name-checked">
                         高坤
                         <span class="icon-lower-right-corner"></span>
@@ -209,7 +208,7 @@
                     </div>
                 </div>
 
-                <div class="receiver-item">
+                <div class="receiver-item" onclick="alert(2);">
                     <div class="receiver-name">高坤</div>
                     <span>高坤</span>
                     <span>信息中心</span>
@@ -271,7 +270,7 @@
                     </td>
                     <td style="font-size: 14px;font-weight: bold">￥1688</td>
                     <td>
-                        <input type="text" class="form-control date" placeholder="请选择时间" readonly="true">
+                        <input type="text" id="dateTest" class="form-control date" placeholder="请选择时间" readonly="true" onchange="dateChange(this.value,'asd')"/>
                     </td>
                 </tr>
                 </tbody>
@@ -309,6 +308,11 @@
             clearBtn: true //清除按钮
         });
 
+//        $("#dateTest").datepicker().on('changeDate', function(ev){
+//                if (ev.date.valueOf()){
+//                    var a = 1;
+//                }
+//        });
     });
 
     function expandOrCollapse($this, id) {
@@ -319,6 +323,11 @@
             $($this).html("更多地址");
             $('.' + id).css("height", "40px")
         }
+    }
+
+    function dateChange(value,v2){
+        var a= value;
+
     }
 </script>
 </html>
