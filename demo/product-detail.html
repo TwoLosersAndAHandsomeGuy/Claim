@@ -5,10 +5,12 @@
     <title>商品详情</title>
     <link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../resources/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="../resources/toastr/css/toastr.css">
     <link rel="stylesheet" href="../resources/css/base.css">
     <script type="text/javascript" src="../resources/js/jquery.1.11.3.min.js"></script>
     <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/js/idangerous.swiper.min.js"></script>
+    <script type="text/javascript" src="../resources/toastr/js/toastr.js"></script>
 
     <style type="text/css">
 
@@ -505,11 +507,13 @@
 
 
 <script type="text/javascript">
+    toastr.options.positionClass = 'toast-bottom-right';
+
     $(function () {
         $("#page_head").load("layout/page_head.html");
         $("#page_foot").load("layout/page_foot.html");
         $("#page_right").load("layout/page_right.html");
-    });
+    })
 
     function modifyValBuyNum(valueId, addOrSubtract, type) {
         var originVal = 0;
@@ -532,6 +536,8 @@
         } else {
             $('#' + valueId).val(parseInt(originVal) + num);
         }
+
+        toastr.success('增加成功');
     }
 
     function switchTab(showId) {
